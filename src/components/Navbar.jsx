@@ -19,7 +19,7 @@ export default function Navbar() {
       <div className="container mx-auto px-6 flex items-center justify-between">
         
         {/* Desktop Left Links */}
-        <div className="hidden md:flex items-center gap-16 text-[10px] font-semibold text-zinc-300 uppercase tracking-widest flex-1 justify-end pr-16">
+        <div className="hidden md:flex items-center gap-16 text-[10px] font-semibold text-zinc-300 uppercase tracking-widest flex-1 justify-start pr-16 whitespace-nowrap">
           <Link to="/" className="hover:text-gold transition-colors text-gold">Home</Link>
           <Link to="/products" className="hover:text-gold transition-colors">Products</Link>
           <Link to="/solutions" className="hover:text-gold transition-colors">Solutions</Link>
@@ -31,7 +31,7 @@ export default function Navbar() {
         </Link>
         
         {/* Desktop Right Links */}
-        <div className="hidden md:flex items-center gap-16 text-[10px] font-semibold text-zinc-300 uppercase tracking-widest flex-1 justify-start pl-16">
+        <div className="hidden md:flex items-center gap-16 text-[10px] font-semibold text-zinc-300 uppercase tracking-widest flex-1 justify-end pl-16 whitespace-nowrap">
           <Link to="/projects" className="hover:text-gold transition-colors">Projects</Link>
           <Link to="/about" className="hover:text-gold transition-colors">About Us</Link>
           <Link to="/contact" className="hover:text-gold transition-colors">Contact Us</Link>
