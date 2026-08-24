@@ -89,20 +89,22 @@ export default function Footer() {
           
           {/* Column 4: Contact Info */}
           <div className="col-span-1">
-            <h4 className="text-white font-bold mb-6 uppercase tracking-wider text-[12px]">CONTACT INFO</h4>
+            <h4 className="text-white font-bold mb-8 uppercase tracking-wider text-[14px]">CONTACT INFO</h4>
             
-            <div className="mb-8">
-              <h5 className="text-white font-bold mb-3 uppercase tracking-wider text-[11px]">CORPORATE OFFICE & FACTORY</h5>
-              <p className="text-[13px] leading-relaxed text-zinc-300">
-                <span className="font-semibold text-white">Marudhar Electricals</span><br/>
-                Ground Floor No 54 4th Main 4th Cross Near Rudhrappa Garden Ashwath Katte Road Kasturiba Nagar Mysore Road<br/>
+            <div className="mb-10">
+              <h5 className="text-white font-bold mb-4 uppercase tracking-wider text-[14px]">CORPORATE OFFICE & FACTORY</h5>
+              <p className="text-[15px] leading-8 font-medium text-white/90">
+                <span className="font-bold text-white block mb-1">Marudhar Electricals</span>
+                Ground Floor No 54 4th Main 4th Cross<br/>
+                Near Rudhrappa Garden Ashwath Katte<br/>
+                Road Kasturiba Nagar Mysore Road<br/>
                 Bengaluru, Karnataka - 560026
               </p>
             </div>
 
             <div>
-              <h5 className="text-white font-bold mb-3 uppercase tracking-wider text-[11px]">BUSINESS INQUIRIES</h5>
-              <p className="text-[13px] leading-relaxed text-zinc-300 space-y-1">
+              <h5 className="text-white font-bold mb-4 uppercase tracking-wider text-[14px]">BUSINESS INQUIRIES</h5>
+              <p className="text-[15px] leading-8 font-medium text-white/90">
                 <span className="block">Contact: +91 7204301107</span>
                 <span className="block">E-Mail: murudharelectricals@gmail.com</span>
               </p>

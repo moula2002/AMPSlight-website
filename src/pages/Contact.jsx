@@ -87,8 +87,14 @@ export default function Contact() {
                     <MapPin className="w-6 h-6 text-gold" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-lg mb-1">Our Headquarters</h3>
-                    <p className="text-zinc-400">123 Innovation Drive<br />Tech Park, TP 45678<br />United States</p>
+                    <h3 className="font-semibold text-lg mb-1">Corporate Office & Factory</h3>
+                    <p className="text-zinc-400">
+                      <strong className="text-white">Marudhar Electricals</strong><br/>
+                      Ground Floor No 54 4th Main 4th Cross<br/>
+                      Near Rudhrappa Garden Ashwath Katte<br/>
+                      Road Kasturiba Nagar Mysore Road<br/>
+                      Bengaluru, Karnataka - 560026
+                    </p>
                   </div>
                 </div>
                 
@@ -98,7 +104,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-lg mb-1">Phone</h3>
-                    <p className="text-zinc-400">+1 (800) 123-4567<br />+1 (555) 987-6543</p>
+                    <p className="text-zinc-400">+91 7204301107</p>
                   </div>
                 </div>
                 
@@ -108,7 +114,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-lg mb-1">Email</h3>
-                    <p className="text-zinc-400">info@ampslite.com<br />support@ampslite.com</p>
+                    <p className="text-zinc-400">murudharelectricals@gmail.com</p>
                   </div>
                 </div>
               </div>
