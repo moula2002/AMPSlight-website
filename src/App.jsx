@@ -11,6 +11,7 @@ import Projects from './pages/Projects'
 import About from './pages/About'
 import Contact from './pages/Contact'
 import Blog from './pages/Blog'
+import ProductDetails from './pages/ProductDetails'
 
 function ScrollToTopAndAOS() {
   const { pathname } = useLocation();
@@ -47,6 +48,7 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/blog" element={<Blog />} />
+            <Route path="/product/:id" element={<ProductDetails />} />
           </Routes>
         </main>
         <Footer />

@@ -81,8 +81,10 @@ export default function Products() {
                       {category.products && category.products.length > 0 ? (
                         category.products.map((product, fIndex) => (
                           <li key={fIndex} className="flex items-center gap-2">
-                            <span className="w-1.5 h-1.5 rounded-full bg-gold/50"></span>
-                            {product.title}
+                            <span className="w-1.5 h-1.5 rounded-full bg-gold/50 shrink-0"></span>
+                            <Link to={`/product/${product._id}`} className="hover:text-gold transition-colors truncate">
+                              {product.title}
+                            </Link>
                           </li>
                         ))
                       ) : (

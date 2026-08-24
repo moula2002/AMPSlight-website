@@ -8,17 +8,23 @@ export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
   const [categories, setCategories] = useState([])
+  const [subcategories, setSubcategories] = useState([])
+  const [openMobileCategory, setOpenMobileCategory] = useState(null)
 
   useEffect(() => {
-    const fetchCategories = async () => {
+    const fetchData = async () => {
       try {
-        const response = await api.get('/categories');
-        setCategories(response.data);
+        const [catRes, subcatRes] = await Promise.all([
+          api.get('/categories'),
+          api.get('/subcategories')
+        ]);
+        setCategories(catRes.data);
+        setSubcategories(subcatRes.data);
       } catch (error) {
-        console.error('Failed to fetch categories for navbar', error);
+        console.error('Failed to fetch data for navbar', error);
       }
     };
-    fetchCategories();
+    fetchData();
 
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20)
@@ -33,6 +39,12 @@ export default function Navbar() {
 
   const closeMobileMenu = () => {
     setIsMobileMenuOpen(false)
+    setOpenMobileCategory(null)
+  }
+
+  const toggleMobileCategory = (categoryId, e) => {
+    e.preventDefault()
+    setOpenMobileCategory(openMobileCategory === categoryId ? null : categoryId)
   }
 
   return (
@@ -52,15 +64,36 @@ export default function Navbar() {
 
             <div className="absolute top-[80%] left-0 bg-slate-900 border border-slate-700 min-w-[220px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 shadow-xl rounded-sm translate-y-2 group-hover:translate-y-0">
               <div className="py-2">
-                {categories.length > 0 ? categories.map((category) => (
-                  <Link
-                    key={category._id}
-                    to={`/products`}
-                    className="block px-6 py-3 hover:bg-slate-800 hover:text-gold transition-colors text-zinc-300 text-xs uppercase"
-                  >
-                    {category.name}
-                  </Link>
-                )) : (
+                {categories.length > 0 ? categories.map((category) => {
+                  const categorySubcats = subcategories.filter(sub => sub.category && (sub.category._id === category._id || sub.category === category._id));
+                  return (
+                    <div key={category._id} className="group/sub relative">
+                      <Link
+                        to={`/products`}
+                        className="block px-6 py-3 hover:bg-slate-800 hover:text-gold transition-colors text-zinc-300 text-xs uppercase flex justify-between items-center"
+                      >
+                        {category.name}
+                        {categorySubcats.length > 0 && <ChevronDown size={14} className="-rotate-90" />}
+                      </Link>
+                      
+                      {categorySubcats.length > 0 && (
+                        <div className="absolute top-0 left-full bg-slate-900 border border-slate-700 min-w-[200px] opacity-0 invisible group-hover/sub:opacity-100 group-hover/sub:visible transition-all duration-300 shadow-xl rounded-sm ml-1">
+                          <div className="py-2">
+                            {categorySubcats.map((sub) => (
+                              <Link
+                                key={sub._id}
+                                to={`/products`}
+                                className="block px-6 py-3 hover:bg-slate-800 hover:text-gold transition-colors text-zinc-300 text-[10px] uppercase tracking-wider"
+                              >
+                                {sub.name}
+                              </Link>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  );
+                }) : (
                   <div className="px-6 py-3 text-zinc-500 text-xs">Loading...</div>
                 )}
               </div>
@@ -100,18 +133,51 @@ export default function Navbar() {
 
           <div className="flex flex-col items-center w-full">
             <Link to="/products" onClick={closeMobileMenu} className="hover:text-gold transition-colors mb-4">Products</Link>
-            <div className="flex flex-col items-center gap-4 bg-white/5 w-full py-4 border-y border-white/5">
-              {categories.length > 0 ? categories.map((category) => (
-                <Link
-                  key={category._id}
-                  to={`/products`}
-                  onClick={closeMobileMenu}
-                  className="text-xs text-zinc-400 hover:text-gold transition-colors uppercase"
-                >
-                  {category.name}
-                </Link>
-              )) : (
-                <div className="text-xs text-zinc-500">Loading...</div>
+            <div className="flex flex-col w-full bg-white/5 border-y border-white/5 py-2">
+              {categories.length > 0 ? categories.map((category) => {
+                const categorySubcats = subcategories.filter(sub => sub.category && (sub.category._id === category._id || sub.category === category._id));
+                const isOpen = openMobileCategory === category._id;
+                
+                return (
+                  <div key={category._id} className="w-full flex flex-col items-center">
+                    <div 
+                      className="flex items-center justify-center gap-2 py-3 w-full text-xs text-zinc-300 hover:text-gold transition-colors uppercase cursor-pointer"
+                      onClick={(e) => {
+                        if (categorySubcats.length > 0) {
+                          toggleMobileCategory(category._id, e);
+                        } else {
+                          closeMobileMenu();
+                        }
+                      }}
+                    >
+                      <Link to={`/products`} className="hover:text-gold" onClick={(e) => {
+                        if (categorySubcats.length > 0) {
+                          e.preventDefault();
+                          toggleMobileCategory(category._id, e);
+                        }
+                      }}>{category.name}</Link>
+                      {categorySubcats.length > 0 && (
+                        <ChevronDown size={14} className={`transition-transform duration-300 ${isOpen ? 'rotate-180 text-gold' : ''}`} />
+                      )}
+                    </div>
+                    
+                    {/* Mobile Subcategories */}
+                    <div className={`flex flex-col items-center w-full bg-black/30 overflow-hidden transition-all duration-300 ${isOpen ? 'max-h-96 py-2' : 'max-h-0 py-0'}`}>
+                      {categorySubcats.map((sub) => (
+                        <Link
+                          key={sub._id}
+                          to={`/products`}
+                          onClick={closeMobileMenu}
+                          className="py-2 text-[10px] text-zinc-400 hover:text-gold transition-colors uppercase tracking-widest"
+                        >
+                          - {sub.name}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                );
+              }) : (
+                <div className="text-xs text-zinc-500 py-4 text-center">Loading...</div>
               )}
             </div>
           </div>
