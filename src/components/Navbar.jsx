@@ -2,13 +2,24 @@ import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { ArrowRight, Menu, X, ChevronDown } from 'lucide-react'
 import Logo from '../assets/Logo.png'
-import { productCategories } from '../data/products'
+import api from '../api/axiosInstance'
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
+  const [categories, setCategories] = useState([])
 
   useEffect(() => {
+    const fetchCategories = async () => {
+      try {
+        const response = await api.get('/categories');
+        setCategories(response.data);
+      } catch (error) {
+        console.error('Failed to fetch categories for navbar', error);
+      }
+    };
+    fetchCategories();
+
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20)
     }
@@ -41,15 +52,17 @@ export default function Navbar() {
 
             <div className="absolute top-[80%] left-0 bg-slate-900 border border-slate-700 min-w-[220px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 shadow-xl rounded-sm translate-y-2 group-hover:translate-y-0">
               <div className="py-2">
-                {productCategories.map((category) => (
+                {categories.length > 0 ? categories.map((category) => (
                   <Link
-                    key={category.id}
+                    key={category._id}
                     to={`/products`}
-                    className="block px-6 py-3 hover:bg-slate-800 hover:text-gold transition-colors text-zinc-300 text-xs"
+                    className="block px-6 py-3 hover:bg-slate-800 hover:text-gold transition-colors text-zinc-300 text-xs uppercase"
                   >
-                    {category.title}
+                    {category.name}
                   </Link>
-                ))}
+                )) : (
+                  <div className="px-6 py-3 text-zinc-500 text-xs">Loading...</div>
+                )}
               </div>
             </div>
           </div>
@@ -88,16 +101,18 @@ export default function Navbar() {
           <div className="flex flex-col items-center w-full">
             <Link to="/products" onClick={closeMobileMenu} className="hover:text-gold transition-colors mb-4">Products</Link>
             <div className="flex flex-col items-center gap-4 bg-white/5 w-full py-4 border-y border-white/5">
-              {productCategories.map((category) => (
+              {categories.length > 0 ? categories.map((category) => (
                 <Link
-                  key={category.id}
+                  key={category._id}
                   to={`/products`}
                   onClick={closeMobileMenu}
-                  className="text-xs text-zinc-400 hover:text-gold transition-colors"
+                  className="text-xs text-zinc-400 hover:text-gold transition-colors uppercase"
                 >
-                  {category.title}
+                  {category.name}
                 </Link>
-              ))}
+              )) : (
+                <div className="text-xs text-zinc-500">Loading...</div>
+              )}
             </div>
           </div>
 
