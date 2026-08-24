@@ -35,14 +35,14 @@ export default function Home() {
       {/* Hero Section */}
       <section className="relative min-h-[75vh] flex items-center bg-black border-b border-gray-200">
         <div className="absolute inset-0 overflow-hidden">
-          <img 
-            src="/images/perfect_hero.png" 
-            alt="Modern Lighting" 
+          <img
+            src="/images/perfect_hero.png"
+            alt="Modern Lighting"
             className="w-full h-full object-cover opacity-100"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/20 to-transparent"></div>
         </div>
-        
+
         <div className="container mx-auto px-6 relative z-10 pt-24 pb-32">
           <div className="max-w-2xl">
             <h3 className="text-gold uppercase tracking-[0.3em] text-xs font-bold mb-4 flex items-center gap-4 opacity-0 animate-fade-in-up delay-100">
@@ -107,17 +107,17 @@ export default function Home() {
       <section data-aos="fade-up" className="container mx-auto px-6 py-32 bg-white">
         <div className="flex flex-col lg:flex-row gap-20 items-center">
           <div className="lg:w-1/2 relative group">
-             <div className="aspect-[4/3] w-full bg-gray-100 border border-gray-200 p-4 relative overflow-hidden flex items-center justify-center">
-               <img src="/images/residential_lighting.png" alt="AMPSLITE Quality" className="w-full h-full object-cover shadow-sm group-hover:scale-105 transition-transform duration-700" />
-             </div>
-             {/* Decorative architectural accents */}
-             <div className="absolute -bottom-6 -left-6 w-32 h-1 bg-gold z-10"></div>
-             <div className="absolute -top-6 -right-6 w-1 h-32 bg-gold z-10"></div>
-             
-             <div className="absolute -bottom-10 -right-10 bg-white border border-gray-100 text-black p-8 rounded-sm shadow-2xl hidden lg:block z-20 group-hover:-translate-y-2 transition-transform duration-500">
-               <p className="text-5xl font-bold mb-2 text-gold">15+</p>
-               <p className="text-xs font-bold uppercase tracking-widest text-gray-400">Years of<br/>Excellence</p>
-             </div>
+            <div className="aspect-[4/3] w-full bg-gray-100 border border-gray-200 p-4 relative overflow-hidden flex items-center justify-center">
+              <img src="/images/residential_lighting.png" alt="AMPSLITE Quality" className="w-full h-full object-cover shadow-sm group-hover:scale-105 transition-transform duration-700" />
+            </div>
+            {/* Decorative architectural accents */}
+            <div className="absolute -bottom-6 -left-6 w-32 h-1 bg-gold z-10"></div>
+            <div className="absolute -top-6 -right-6 w-1 h-32 bg-gold z-10"></div>
+
+            <div className="absolute -bottom-10 -right-10 bg-white border border-gray-100 text-black p-8 rounded-sm shadow-2xl hidden lg:block z-20 group-hover:-translate-y-2 transition-transform duration-500">
+              <p className="text-5xl font-bold mb-2 text-gold">15+</p>
+              <p className="text-xs font-bold uppercase tracking-widest text-gray-400">Years of<br />Excellence</p>
+            </div>
           </div>
           <div className="lg:w-1/2">
             <h3 className="text-gold uppercase tracking-widest text-xs font-bold mb-4">Who We Are</h3>
@@ -154,10 +154,10 @@ export default function Home() {
         <div className="container mx-auto px-6">
           <div className="flex justify-between items-end mb-12">
             <div>
-              <h3 className="text-gold uppercase tracking-widest text-xs font-semibold mb-2 text-center md:text-left">Our Categories</h3>
-              <h2 className="text-4xl font-bold text-center md:text-left">Explore Categories</h2>
+              <h3 className="text-[#C49B4B] uppercase tracking-[0.2em] text-[13px] font-bold mb-3 text-center md:text-left">Our Categories</h3>
+              <h2 className="text-5xl md:text-6xl font-extrabold text-black text-center md:text-left tracking-tight">Explore Categories</h2>
             </div>
-            <Link to="/products" className="hidden md:flex items-center gap-2 text-sm font-semibold hover:text-gold transition-colors uppercase tracking-wider">
+            <Link to="/products" className="hidden md:flex items-center gap-2 text-sm font-bold text-black hover:text-gold transition-colors uppercase tracking-wider">
               View All Categories <ArrowRight size={16} />
             </Link>
           </div>
@@ -182,11 +182,11 @@ export default function Home() {
         <div className="container mx-auto px-6 flex flex-col lg:flex-row gap-16 items-center">
           <div className="lg:w-1/2">
             <h3 className="text-gold uppercase tracking-widest text-xs font-semibold mb-2">Our Solutions</h3>
-            <h2 className="text-4xl font-bold mb-6 leading-tight">Lighting Solutions<br/>for Every Application</h2>
+            <h2 className="text-4xl font-bold mb-6 leading-tight">Lighting Solutions<br />for Every Application</h2>
             <p className="text-zinc-400 mb-10">
               From residential to industrial, we provide customized lighting solutions that create impact and efficiency.
             </p>
-            
+
             <div className="space-y-4 mb-10">
               {['Residential Lighting', 'Commercial Lighting', 'Industrial Lighting', 'Outdoor Lighting', 'Smart Lighting Solutions'].map((item, i) => (
                 <div key={i} className="flex items-center gap-3">
@@ -200,12 +200,12 @@ export default function Home() {
               EXPLORE SOLUTIONS <ArrowRight size={18} />
             </Link>
           </div>
-          
+
           <div className="lg:w-1/2 relative">
             <div className="aspect-video rounded-lg overflow-hidden border border-white/10 shadow-2xl relative z-10">
-              <img 
-                src="/images/office_lighting.png" 
-                alt="Modern Office Lighting" 
+              <img
+                src="/images/office_lighting.png"
+                alt="Modern Office Lighting"
                 className="w-full h-full object-cover"
               />
             </div>
@@ -221,25 +221,25 @@ export default function Home() {
         <div className="container mx-auto px-6">
           <div className="flex justify-between items-end mb-12">
             <div>
-              <h3 className="text-gold uppercase tracking-widest text-xs font-semibold mb-2 text-center md:text-left">Top Selling</h3>
-              <h2 className="text-4xl font-bold text-center md:text-left">Featured Products</h2>
+              <h3 className="text-[#C49B4B] uppercase tracking-[0.2em] text-[13px] font-bold mb-3 text-center md:text-left">Top Selling</h3>
+              <h2 className="text-5xl md:text-6xl font-extrabold text-black text-center md:text-left tracking-tight">Explore Products</h2>
             </div>
-            <Link to="/products" className="hidden md:flex items-center gap-2 text-sm font-semibold hover:text-gold transition-colors uppercase tracking-wider">
-              View All Products <ArrowRight size={16} />
+            <Link to="/products" className="hidden md:flex items-center gap-2 text-[11px] font-bold text-black hover:text-gold transition-colors uppercase tracking-widest mt-2 md:mt-0">
+              VIEW ALL PRODUCTS <ArrowRight size={14} />
             </Link>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 border-t border-l border-gray-200">
             {products.map(product => (
-              <Link 
-                to={`/product/${product._id}`} 
-                key={product._id} 
+              <Link
+                to={`/product/${product._id}`}
+                key={product._id}
                 className="group border-r border-b border-gray-200 bg-white flex flex-col hover:bg-gray-50 transition-colors"
               >
                 <div className="p-6 flex items-center justify-center relative min-h-[250px]">
-                  <img 
-                    src={processImageUrl(product.imageUrl) || '/images/hero_bg.png'} 
-                    alt={product.title} 
+                  <img
+                    src={processImageUrl(product.imageUrl) || '/images/hero_bg.png'}
+                    alt={product.title}
                     className="max-w-full max-h-[180px] object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-700"
                   />
                   {product.category && (
@@ -276,7 +276,7 @@ export default function Home() {
               Read All Articles <ArrowRight size={16} />
             </Link>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="bg-zinc-900/40 border border-white/5 rounded-sm overflow-hidden group hover:border-gold/30 transition-colors">
               <div className="h-48 overflow-hidden">
@@ -301,7 +301,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-          
+
           <div className="mt-8 text-center md:hidden">
             <Link to="/blog" className="inline-flex items-center gap-2 text-sm font-semibold hover:text-gold transition-colors uppercase tracking-wider text-white">
               Read All Articles <ArrowRight size={16} />
@@ -335,7 +335,7 @@ export default function Home() {
               </div>
             ))}
           </div>
-          
+
           <Link to="/projects" className="inline-flex items-center gap-2 text-sm font-semibold hover:text-gold transition-colors uppercase tracking-wider">
             View All Projects <ArrowRight size={16} />
           </Link>
@@ -346,11 +346,11 @@ export default function Home() {
       <section data-aos="fade-up" className="bg-[#0a0a0a] py-32 border-t border-white/5 relative overflow-hidden">
         {/* Subtle background element */}
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-zinc-900 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3 z-0"></div>
-        
+
         <div className="container mx-auto px-6 text-center relative z-10">
           <h3 className="text-gold uppercase tracking-widest text-xs font-bold mb-4">Testimonials</h3>
           <h2 className="text-4xl md:text-5xl font-bold mb-16 text-white tracking-tight">What Our Clients Say</h2>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {[
               {

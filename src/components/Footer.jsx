@@ -37,32 +37,32 @@ export default function Footer() {
 
   return (
     <>
-      <footer className="bg-[#111111] pt-20 pb-12 border-t border-white/5 text-sm text-zinc-300 font-sans relative">
-        <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12 lg:gap-16">
+      <footer className="bg-[#111111] pt-16 pb-8 border-t border-white/5 font-sans relative">
+        <div className="container mx-auto px-6 lg:px-12 grid grid-cols-1 md:grid-cols-4 gap-8 lg:gap-12">
           
           {/* Column 1: Logo & Description */}
           <div className="col-span-1 flex flex-col items-start">
-            <img src={Logo} alt="AMPSLITE" className="h-20 object-contain mix-blend-screen mb-8" />
-            <p className="mb-8 leading-relaxed text-[13px] text-zinc-300 max-w-sm">
+            <img src={Logo} alt="AMPSLITE" className="h-14 object-contain mix-blend-screen mb-6" />
+            <p className="mb-6 leading-relaxed text-[13px] text-zinc-300 max-w-sm">
               AMPSLITE designs and manufactures premium architectural and industrial lighting built to last. From smart cities to premium estates, we illuminate modern spaces.
             </p>
             <div className="flex gap-4">
               <a href="#" className="bg-white/5 p-2 rounded-sm hover:bg-gold hover:text-black transition-colors">
-                <FiInstagram size={18} />
+                <FiInstagram size={16} />
               </a>
               <a href="#" className="bg-white/5 p-2 rounded-sm hover:bg-gold hover:text-black transition-colors">
-                <FiFacebook size={18} />
+                <FiFacebook size={16} />
               </a>
               <a href="#" className="bg-white/5 p-2 rounded-sm hover:bg-gold hover:text-black transition-colors">
-                <FiLinkedin size={18} />
+                <FiLinkedin size={16} />
               </a>
             </div>
           </div>
           
           {/* Column 2: Quick Links */}
-          <div className="col-span-1">
-            <h4 className="text-white font-bold mb-6 uppercase tracking-wider text-[14px]">QUICK LINKS</h4>
-            <ul className="space-y-5 text-[15px] font-medium text-white/90">
+          <div className="col-span-1 lg:pl-8">
+            <h4 className="text-white font-bold mb-6 uppercase tracking-wider text-[13px]">QUICK LINKS</h4>
+            <ul className="space-y-3 text-[13px] font-medium text-white/80">
               <li><Link to="/" className="hover:text-gold transition-colors">Home</Link></li>
               <li><Link to="/about" className="hover:text-gold transition-colors">About Us</Link></li>
               <li><Link to="/solutions" className="hover:text-gold transition-colors">Solutions</Link></li>
@@ -75,8 +75,8 @@ export default function Footer() {
           
           {/* Column 3: Categories */}
           <div className="col-span-1">
-            <h4 className="text-white font-bold mb-6 uppercase tracking-wider text-[14px]">CATEGORIES</h4>
-            <ul className="space-y-5 text-[15px] font-medium text-white/90">
+            <h4 className="text-white font-bold mb-6 uppercase tracking-wider text-[13px]">CATEGORIES</h4>
+            <ul className="space-y-3 text-[13px] font-medium text-white/80">
               {categories.length > 0 ? categories.map((category) => (
                 <li key={category._id}>
                   <Link to={`/products`} className="hover:text-gold transition-colors">{category.name}</Link>
@@ -89,11 +89,11 @@ export default function Footer() {
           
           {/* Column 4: Contact Info */}
           <div className="col-span-1">
-            <h4 className="text-white font-bold mb-8 uppercase tracking-wider text-[14px]">CONTACT INFO</h4>
+            <h4 className="text-white font-bold mb-6 uppercase tracking-wider text-[13px]">CONTACT INFO</h4>
             
-            <div className="mb-10">
-              <h5 className="text-white font-bold mb-4 uppercase tracking-wider text-[14px]">CORPORATE OFFICE & FACTORY</h5>
-              <p className="text-[15px] leading-8 font-medium text-white/90">
+            <div className="mb-8">
+              <h5 className="text-white font-bold mb-3 uppercase tracking-wider text-[12px]">CORPORATE OFFICE & FACTORY</h5>
+              <p className="text-[13px] leading-relaxed text-white/80 font-medium">
                 <span className="font-bold text-white block mb-1">Marudhar Electricals</span>
                 Ground Floor No 54 4th Main 4th Cross<br/>
                 Near Rudhrappa Garden Ashwath Katte<br/>
@@ -103,14 +103,20 @@ export default function Footer() {
             </div>
 
             <div>
-              <h5 className="text-white font-bold mb-4 uppercase tracking-wider text-[14px]">BUSINESS INQUIRIES</h5>
-              <p className="text-[15px] leading-8 font-medium text-white/90">
+              <h5 className="text-white font-bold mb-3 uppercase tracking-wider text-[12px]">BUSINESS INQUIRIES</h5>
+              <p className="text-[13px] leading-relaxed text-white/80 font-medium">
                 <span className="block">Contact: +91 7204301107</span>
                 <span className="block">E-Mail: murudharelectricals@gmail.com</span>
               </p>
             </div>
           </div>
           
+        </div>
+
+        {/* Bottom Copyright Bar */}
+        <div className="container mx-auto px-6 lg:px-12 pt-6 mt-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center text-[12px] text-zinc-400">
+          <p>© 2026 AMPSLITE. All Rights Reserved. Manufactured & Distributed by Marudhar Electricals.</p>
+          <p className="mt-2 md:mt-0">Developed by Innomatrics Technologies</p>
         </div>
       </footer>
 
@@ -129,7 +135,7 @@ export default function Footer() {
 
       <button
         onClick={scrollToTop}
-        className={`fixed bottom-6 right-6 z-50 bg-zinc-900 border border-white/10 text-white p-4 rounded-full shadow-2xl transition-all duration-300 hover:bg-gold hover:text-black ${showScrollTop ? 'opacity-100 translate-y-0 visible' : 'opacity-0 translate-y-4 invisible'}`}
+        className={`fixed bottom-6 right-6 z-50 bg-[#111] border border-white/10 text-white p-4 rounded-full shadow-2xl transition-all duration-300 hover:bg-gold hover:text-black ${showScrollTop ? 'opacity-100 translate-y-0 visible' : 'opacity-0 translate-y-4 invisible'}`}
         aria-label="Scroll to top"
       >
         <FiArrowUp size={20} />
