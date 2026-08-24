@@ -27,10 +27,10 @@ function ScrollToTopAndAOS() {
 function App() {
   useEffect(() => {
     AOS.init({
-      duration: 800,
+      duration: 1000,
       once: true,
-      offset: 100,
-      easing: 'ease-out-cubic'
+      offset: 50,
+      easing: 'ease-out-quart'
     });
   }, []);
 

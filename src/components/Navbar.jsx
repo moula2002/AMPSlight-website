@@ -62,7 +62,7 @@ export default function Navbar() {
               Products <ChevronDown size={14} className="group-hover:rotate-180 transition-transform duration-300" />
             </Link>
 
-            <div className="absolute top-[80%] left-0 bg-slate-900 border border-slate-700 min-w-[220px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 shadow-xl rounded-sm translate-y-2 group-hover:translate-y-0">
+            <div className="absolute top-[80%] left-0 bg-black/90 backdrop-blur-md border border-white/10 min-w-[240px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 shadow-2xl shadow-black/50 rounded-md translate-y-2 group-hover:translate-y-0">
               <div className="py-2">
                 {categories.length > 0 ? categories.map((category) => {
                   const categorySubcats = subcategories.filter(sub => sub.category && (sub.category._id === category._id || sub.category === category._id));
@@ -70,20 +70,20 @@ export default function Navbar() {
                     <div key={category._id} className="group/sub relative">
                       <Link
                         to={`/products`}
-                        className="block px-6 py-3 hover:bg-slate-800 hover:text-gold transition-colors text-zinc-300 text-xs uppercase flex justify-between items-center"
+                        className="block px-6 py-3.5 hover:bg-white/5 hover:text-gold transition-colors text-white text-xs uppercase flex justify-between items-center tracking-widest font-bold"
                       >
                         {category.name}
                         {categorySubcats.length > 0 && <ChevronDown size={14} className="-rotate-90" />}
                       </Link>
                       
                       {categorySubcats.length > 0 && (
-                        <div className="absolute top-0 left-full bg-slate-900 border border-slate-700 min-w-[200px] opacity-0 invisible group-hover/sub:opacity-100 group-hover/sub:visible transition-all duration-300 shadow-xl rounded-sm ml-1">
+                        <div className="absolute top-0 left-full bg-black/95 backdrop-blur-md border border-white/10 min-w-[220px] opacity-0 invisible group-hover/sub:opacity-100 group-hover/sub:visible transition-all duration-300 shadow-2xl shadow-black/50 rounded-md ml-1">
                           <div className="py-2">
                             {categorySubcats.map((sub) => (
                               <Link
                                 key={sub._id}
                                 to={`/products`}
-                                className="block px-6 py-3 hover:bg-slate-800 hover:text-gold transition-colors text-zinc-300 text-[10px] uppercase tracking-wider"
+                                className="block px-6 py-3 hover:bg-white/10 hover:text-gold transition-colors text-zinc-300 text-[10px] uppercase tracking-widest font-bold"
                               >
                                 {sub.name}
                               </Link>

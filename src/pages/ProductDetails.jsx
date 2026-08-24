@@ -42,7 +42,7 @@ export default function ProductDetails() {
   const allImages = [product.imageUrl, ...(product.galleryImages || [])].filter(Boolean).map(processImageUrl);
 
   return (
-    <div className="min-h-screen bg-black pb-24 pt-32">
+    <div className="min-h-screen bg-black pb-24 pt-16">
       <div className="container mx-auto px-6">
         <Link to="/products" className="inline-flex items-center gap-2 text-zinc-400 hover:text-gold transition-colors mb-8 text-sm uppercase tracking-wider font-semibold">
           <ArrowLeft size={16} /> Back to Products

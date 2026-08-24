@@ -5,97 +5,107 @@ export default function Solutions() {
   const services = [
     {
       title: "Consulting & Design",
-      icon: <LineChart className="w-12 h-12 text-gold mb-6" />,
+      icon: <LineChart className="w-10 h-10 text-gold mb-6" />,
       description: "Our experts collaborate with architects and designers to create comprehensive lighting plans that meet aesthetic and functional requirements.",
-      benefits: ["Photometric Layouts", "3D Renderings", "Energy Audits", "Code Compliance"]
+      benefits: ["Photometric Layouts", "3D Renderings", "Energy Audits", "Code Compliance"],
+      image: "/images/office_lighting.png"
     },
     {
       title: "Custom Installation",
-      icon: <Wrench className="w-12 h-12 text-gold mb-6" />,
+      icon: <Wrench className="w-10 h-10 text-gold mb-6" />,
       description: "Professional deployment by certified technicians ensuring that every fixture is installed safely and optimally.",
-      benefits: ["Project Management", "Site Surveys", "Turnkey Solutions", "Safety Protocols"]
+      benefits: ["Project Management", "Site Surveys", "Turnkey Solutions", "Safety Protocols"],
+      image: "/images/industrial_lighting.png"
     },
     {
       title: "Retrofitting & Upgrades",
-      icon: <Settings className="w-12 h-12 text-gold mb-6" />,
+      icon: <Settings className="w-10 h-10 text-gold mb-6" />,
       description: "Modernize your existing infrastructure with energy-efficient LED technology, drastically reducing operational costs.",
-      benefits: ["ROI Analysis", "Rebate Assistance", "Minimal Disruption", "Smart Integration"]
+      benefits: ["ROI Analysis", "Rebate Assistance", "Minimal Disruption", "Smart Integration"],
+      image: "/images/residential_lighting.png"
     }
   ];
 
   return (
-    <div className="min-h-screen bg-black pb-12">
+    <div className="min-h-screen bg-white text-black pb-12 font-sans">
       {/* Hero Section */}
-      <section className="relative h-[80vh] flex flex-col items-center justify-center text-center border-b border-white/10 mb-12">
-        <div className="absolute inset-0 overflow-hidden">
+      <section className="relative h-[65vh] flex flex-col justify-end pb-20 border-b border-gray-200 mb-16">
+        <div className="absolute inset-0 overflow-hidden bg-black">
           <img 
-            src="/images/office_lighting.png" 
+            src="/images/hero_bg.png" 
             alt="Tailored Solutions" 
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover opacity-80"
           />
-          <div className="absolute inset-0 bg-black/30"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
         </div>
         
-        <div className="relative z-10 container mx-auto px-6 mt-12">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight opacity-0 animate-fade-in-up delay-100">Tailored <span className="text-gold">Solutions</span></h1>
-          <p className="text-zinc-200 max-w-2xl mx-auto text-lg md:text-xl opacity-0 animate-fade-in-up delay-200">
+        <div className="relative z-10 container mx-auto px-6">
+          <h1 className="text-5xl md:text-7xl font-bold mb-6 tracking-tight text-white">Tailored <span className="text-gold">Solutions</span></h1>
+          <p className="text-white/80 max-w-2xl text-lg md:text-xl font-medium">
             Beyond products, we offer end-to-end services to ensure your lighting project is a complete success from concept to completion.
           </p>
         </div>
       </section>
 
       {/* Services Section */}
-      <section data-aos="fade-up" className="container mx-auto px-6 py-12">
-        <div className="space-y-24">
-          {services.map((service, index) => (
-            <div key={index} className={`flex flex-col md:flex-row gap-12 items-center ${index % 2 !== 0 ? 'md:flex-row-reverse' : ''}`}>
-              
-              {/* Content Half */}
-              <div className="flex-1">
-                {service.icon}
-                <h2 className="text-3xl font-bold mb-4">{service.title}</h2>
-                <p className="text-zinc-400 text-lg mb-8 leading-relaxed">
-                  {service.description}
-                </p>
+      <div className="flex flex-col">
+        {services.map((service, index) => (
+          <section key={index} data-aos="fade-up" className={`py-24 ${index % 2 === 0 ? 'bg-white text-black' : 'bg-[#0a0a0a] text-white border-y border-white/5'}`}>
+            <div className="container mx-auto px-6">
+              <div className={`flex flex-col lg:flex-row gap-16 items-center ${index % 2 !== 0 ? 'lg:flex-row-reverse' : ''}`}>
                 
-                <ul className="space-y-4">
-                  {service.benefits.map((benefit, bIndex) => (
-                    <li key={bIndex} className="flex items-center gap-3 text-zinc-300">
-                      <CheckCircle2 className="w-5 h-5 text-gold" />
-                      {benefit}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              
-              {/* Abstract Visual Half (Placeholder for actual imagery or graphics) */}
-              <div className="flex-1 w-full">
-                <div className="aspect-square max-h-[400px] w-full bg-gradient-to-tr from-zinc-900 via-zinc-800 to-zinc-900 border border-white/5 rounded-sm relative overflow-hidden flex items-center justify-center group">
-                   <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(212,175,55,0.1)_0%,transparent_70%)] opacity-50 group-hover:opacity-100 transition-opacity duration-700"></div>
-                   <div className="w-32 h-32 border border-gold/20 rounded-full animate-[spin_10s_linear_infinite] flex items-center justify-center">
-                     <div className="w-24 h-24 border border-gold/40 rounded-full border-dashed animate-[spin_15s_linear_infinite_reverse]"></div>
-                   </div>
+                {/* Content Half */}
+                <div className="flex-1">
+                  {service.icon}
+                  <h2 className={`text-3xl md:text-4xl font-bold mb-6 ${index % 2 === 0 ? 'text-black' : 'text-white'}`}>{service.title}</h2>
+                  <p className={`text-lg mb-8 leading-relaxed ${index % 2 === 0 ? 'text-gray-500' : 'text-zinc-400'}`}>
+                    {service.description}
+                  </p>
+                  
+                  <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    {service.benefits.map((benefit, bIndex) => (
+                      <li key={bIndex} className={`flex items-center gap-3 font-semibold text-sm uppercase tracking-wider ${index % 2 === 0 ? 'text-gray-700' : 'text-zinc-300'}`}>
+                        <CheckCircle2 className="w-5 h-5 text-gold shrink-0" />
+                        {benefit}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-              </div>
+                
+                {/* Premium Image Half */}
+                <div className="flex-1 w-full relative group">
+                  <div className={`aspect-video lg:aspect-square max-h-[500px] w-full p-4 relative overflow-hidden flex items-center justify-center ${index % 2 === 0 ? 'bg-gray-100 border border-gray-200' : 'bg-zinc-900 border border-white/10'}`}>
+                     <img 
+                       src={service.image} 
+                       alt={service.title}
+                       className="w-full h-full object-cover shadow-sm group-hover:scale-105 transition-transform duration-700"
+                     />
+                  </div>
+                  {/* Decorative architectural accents */}
+                  <div className={`absolute -bottom-6 w-32 h-1 bg-gold z-10 ${index % 2 !== 0 ? '-left-6' : '-right-6'}`}></div>
+                  <div className={`absolute -top-6 w-1 h-32 bg-gold z-10 ${index % 2 !== 0 ? '-left-6' : '-right-6'}`}></div>
+                </div>
 
+              </div>
             </div>
-          ))}
-        </div>
-      </section>
+          </section>
+        ))}
+      </div>
 
       {/* Process Section */}
-      <section data-aos="fade-up" className="bg-zinc-900/50 py-24 mt-24 border-y border-white/5">
+      <section data-aos="fade-up" className="bg-[#0a0a0a] py-24 mt-32 border-y border-white/5">
         <div className="container mx-auto px-6">
-          <h2 className="text-3xl md:text-4xl font-bold mb-16 text-center">Our Process</h2>
+          <h3 className="text-gold uppercase tracking-widest text-xs font-semibold mb-2 text-center">Our Methodology</h3>
+          <h2 className="text-3xl md:text-5xl font-bold mb-16 text-center text-white">Our Process</h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {['Discovery', 'Design', 'Deployment', 'Support'].map((step, index) => (
               <div key={index} className="text-center relative">
-                <div className="w-16 h-16 mx-auto bg-black border border-gold text-gold font-bold text-xl flex items-center justify-center rounded-full mb-6 z-10 relative">
+                <div className="w-20 h-20 mx-auto bg-black border-2 border-gold text-gold font-bold text-2xl flex items-center justify-center rounded-full mb-6 z-10 relative shadow-lg">
                   0{index + 1}
                 </div>
-                {index < 3 && <div className="hidden md:block absolute top-8 left-1/2 w-full h-[1px] bg-white/10"></div>}
-                <h3 className="text-xl font-semibold mb-2">{step}</h3>
-                <p className="text-sm text-zinc-500">Comprehensive approach to ensure flawless execution.</p>
+                {index < 3 && <div className="hidden md:block absolute top-10 left-[60%] w-[80%] h-[2px] bg-white/10"></div>}
+                <h3 className="text-xl font-bold mb-2 text-white">{step}</h3>
+                <p className="text-sm text-zinc-400 font-medium">Comprehensive approach to ensure flawless execution.</p>
               </div>
             ))}
           </div>
@@ -103,9 +113,9 @@ export default function Solutions() {
       </section>
       
       {/* CTA */}
-      <section data-aos="fade-up" className="container mx-auto px-6 py-24 text-center">
-        <h2 className="text-3xl font-bold mb-8">Ready to upgrade your infrastructure?</h2>
-        <Link to="/contact" className="inline-flex items-center gap-2 bg-gold text-black font-bold px-8 py-4 hover:bg-white transition-colors rounded-sm uppercase tracking-wider text-sm">
+      <section data-aos="fade-up" className="container mx-auto px-6 py-32 text-center">
+        <h2 className="text-4xl md:text-5xl font-bold mb-8 text-black tracking-tight">Ready to upgrade your infrastructure?</h2>
+        <Link to="/contact" className="inline-flex items-center gap-4 bg-black text-white font-bold px-10 py-5 hover:bg-gold hover:text-black transition-colors uppercase tracking-widest text-sm">
           Request a Consultation <ArrowRight size={18} />
         </Link>
       </section>
