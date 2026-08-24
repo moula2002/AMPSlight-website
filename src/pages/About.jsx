@@ -20,30 +20,30 @@ export default function About() {
   ];
 
   return (
-    <div className="min-h-screen bg-black pt-24 pb-12">
+    <div className="min-h-screen bg-black pb-12">
       {/* Hero Section */}
-      <section className="relative h-[60vh] flex flex-col items-center justify-center text-center">
+      <section className="relative h-[80vh] flex flex-col items-center justify-center text-center border-b border-white/10">
         <div className="absolute inset-0 overflow-hidden">
           <img 
-            src="/images/about_hero.png" 
+            src="/images/residential_lighting.png" 
             alt="About AMPSLITE" 
-            className="w-full h-full object-cover opacity-30 mix-blend-overlay"
+            className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-black/20"></div>
+          <div className="absolute inset-0 bg-black/30"></div>
         </div>
         
-        <div className="relative z-10 container mx-auto px-6 mt-20">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight">
+        <div className="relative z-10 container mx-auto px-6 mt-16">
+          <h1 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight opacity-0 animate-fade-in-up delay-100">
             Illuminating the <span className="text-gold">Future</span>
           </h1>
-          <p className="text-zinc-400 max-w-2xl mx-auto text-lg md:text-xl leading-relaxed">
+          <p className="text-zinc-200 max-w-2xl mx-auto text-lg md:text-xl leading-relaxed opacity-0 animate-fade-in-up delay-200">
             AMPSLITE has been at the forefront of the lighting industry, delivering cutting-edge, energy-efficient solutions for commercial, industrial, and residential spaces. We don't just sell lights; we craft experiences.
           </p>
         </div>
       </section>
 
       {/* Mission & Vision */}
-      <section className="bg-zinc-900/50 py-24 border-y border-white/5">
+      <section data-aos="fade-up" className="bg-zinc-900/50 py-24 border-y border-white/5">
         <div className="container mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-12 lg:gap-24">
             <div>
@@ -63,7 +63,7 @@ export default function About() {
       </section>
 
       {/* Core Values */}
-      <section className="container mx-auto px-6 py-24">
+      <section data-aos="fade-up" className="container mx-auto px-6 py-24">
         <h2 className="text-3xl md:text-4xl font-bold mb-16 text-center">Our Core Values</h2>
         <div className="grid md:grid-cols-3 gap-8">
           {values.map((value, index) => (
@@ -79,7 +79,7 @@ export default function About() {
       </section>
 
       {/* CTA */}
-      <section className="container mx-auto px-6 py-12">
+      <section data-aos="fade-up" className="container mx-auto px-6 py-12">
         <div className="bg-gold/10 border border-gold/20 p-12 text-center rounded-sm">
           <h2 className="text-3xl font-bold mb-6">Ready to transform your space?</h2>
           <p className="text-zinc-300 mb-8 max-w-2xl mx-auto">

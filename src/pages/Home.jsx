@@ -1,34 +1,35 @@
 import { ArrowRight, Lightbulb, Zap, Clock, Headphones, CheckCircle2 } from 'lucide-react'
 import { Link } from 'react-router-dom'
+import { featuredProducts } from '../data/products'
 
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
-      <section className="relative h-[80vh] flex items-center bg-zinc-900 border-b border-white/10">
+      <section className="relative h-[90vh] flex items-center bg-zinc-900 border-b border-white/10">
         <div className="absolute inset-0 overflow-hidden">
           {/* Using a placeholder architectural image for the modern house */}
           <img 
             src="/images/perfect_hero.png" 
             alt="Modern Lighting" 
-            className="w-full h-full object-cover opacity-90"
+            className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/40 to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/10 to-transparent"></div>
         </div>
         
         <div className="container mx-auto px-6 relative z-10">
           <div className="max-w-2xl">
-            <h3 className="text-gold uppercase tracking-[0.2em] text-xs font-semibold mb-4 flex items-center gap-2">
+            <h3 className="text-gold uppercase tracking-[0.2em] text-xs font-semibold mb-4 flex items-center gap-2 opacity-0 animate-fade-in-up delay-100">
               <span className="w-8 h-[1px] bg-gold"></span>
               Brighter Spaces, Better Living
             </h3>
-            <h1 className="text-5xl md:text-7xl font-bold leading-tight mb-6">
+            <h1 className="text-5xl md:text-7xl font-bold leading-tight mb-6 opacity-0 animate-fade-in-up delay-200">
               Light That <br /> Inspires
             </h1>
-            <p className="text-zinc-400 text-lg md:text-xl mb-10 max-w-lg">
+            <p className="text-zinc-400 text-lg md:text-xl mb-10 max-w-lg opacity-0 animate-fade-in-up delay-300">
               AMPSLITE delivers innovative, energy-efficient lighting solutions for every space.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-col sm:flex-row gap-4 opacity-0 animate-fade-in-up delay-400">
               <Link to="/products" className="bg-gold text-black font-semibold px-8 py-3 rounded-sm flex items-center justify-center gap-2 hover:bg-gold-hover transition-colors">
                 EXPLORE PRODUCTS <ArrowRight size={18} />
               </Link>
@@ -41,7 +42,7 @@ export default function Home() {
       </section>
 
       {/* Features Banner */}
-      <section className="bg-zinc-950 border-b border-white/5 py-12 relative z-20 -mt-8 mx-6 rounded-lg shadow-2xl">
+      <section data-aos="fade-up" data-aos-offset="-50" className="bg-zinc-950 border-b border-white/5 py-12 relative z-20 -mt-8 mx-6 rounded-lg shadow-2xl">
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div className="flex items-start gap-4">
@@ -77,7 +78,7 @@ export default function Home() {
       </section>
 
       {/* Product Categories (White Background) */}
-      <section className="bg-white text-black py-24">
+      <section data-aos="fade-up" className="bg-white text-black py-24">
         <div className="container mx-auto px-6">
           <div className="flex justify-between items-end mb-12">
             <div>
@@ -90,14 +91,7 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
-            {[
-              { title: 'LED Downlights', desc: 'Sleek & efficient downlighting.', img: '/images/led_downlight.png' },
-              { title: 'Spot Lights', desc: 'Focused lighting for highlight areas.', img: '/images/spot_light.png' },
-              { title: 'Panel Lights', desc: 'Even illumination for any space.', img: '/images/panel_light.png' },
-              { title: 'Street Lights', desc: 'Reliable performance for outdoor.', img: '/images/street_light.png' },
-              { title: 'Flood Lights', desc: 'Powerful lighting for large areas.', img: '/images/flood_light.png' },
-              { title: 'Indoor Lights', desc: 'Stylish lighting for your interiors.', img: '/images/residential_lighting.png' }
-            ].map((prod, idx) => (
+            {featuredProducts.map((prod, idx) => (
               <div key={idx} className="bg-zinc-50 border border-zinc-100 rounded-lg p-6 hover:shadow-xl transition-all group flex flex-col items-center text-center cursor-pointer">
                 <div className="w-24 h-24 bg-white rounded-full mb-6 flex items-center justify-center shadow-inner overflow-hidden border border-zinc-100 p-2">
                   <img src={prod.img} alt={prod.title} className="w-full h-full object-contain rounded-full group-hover:scale-110 transition-transform" />
@@ -112,7 +106,7 @@ export default function Home() {
       </section>
 
       {/* Solutions Section (Dark Background) */}
-      <section className="bg-[#0a0a0a] py-24 border-t border-b border-white/5">
+      <section data-aos="fade-up" className="bg-[#0a0a0a] py-24 border-t border-b border-white/5">
         <div className="container mx-auto px-6 flex flex-col lg:flex-row gap-16 items-center">
           <div className="lg:w-1/2">
             <h3 className="text-gold uppercase tracking-widest text-xs font-semibold mb-2">Our Solutions</h3>
@@ -151,7 +145,7 @@ export default function Home() {
       </section>
 
       {/* Projects Section (White Background) */}
-      <section className="bg-white text-black py-24">
+      <section data-aos="fade-up" className="bg-white text-black py-24">
         <div className="container mx-auto px-6 text-center">
           <h3 className="text-gold uppercase tracking-widest text-xs font-semibold mb-2">Our Projects</h3>
           <h2 className="text-4xl font-bold mb-12">Lighting Up Spaces</h2>
@@ -183,7 +177,7 @@ export default function Home() {
       </section>
 
       {/* Testimonials Section */}
-      <section className="bg-zinc-900 py-24 border-t border-b border-white/5">
+      <section data-aos="fade-up" className="bg-zinc-900 py-24 border-t border-b border-white/5">
         <div className="container mx-auto px-6 text-center">
           <h3 className="text-gold uppercase tracking-widest text-xs font-semibold mb-2">Testimonials</h3>
           <h2 className="text-4xl font-bold mb-12">What Our Clients Say</h2>
@@ -220,7 +214,7 @@ export default function Home() {
       </section>
 
       {/* Stats Section */}
-      <section className="bg-zinc-950 py-16 border-t border-b border-white/5">
+      <section data-aos="fade-up" className="bg-zinc-950 py-16 border-t border-b border-white/5">
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-x divide-white/10">
             {[

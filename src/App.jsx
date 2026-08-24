@@ -1,4 +1,7 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { useEffect } from 'react'
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
+import AOS from 'aos'
+import 'aos/dist/aos.css'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import Home from './pages/Home'
@@ -8,9 +11,30 @@ import Projects from './pages/Projects'
 import About from './pages/About'
 import Contact from './pages/Contact'
 
+function ScrollToTopAndAOS() {
+  const { pathname } = useLocation();
+  
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    AOS.refresh();
+  }, [pathname]);
+  
+  return null;
+}
+
 function App() {
+  useEffect(() => {
+    AOS.init({
+      duration: 800,
+      once: true,
+      offset: 100,
+      easing: 'ease-out-cubic'
+    });
+  }, []);
+
   return (
     <BrowserRouter>
+      <ScrollToTopAndAOS />
       <div className="min-h-screen bg-black text-white font-sans selection:bg-gold/30">
         <Navbar />
         <main className="pt-24">

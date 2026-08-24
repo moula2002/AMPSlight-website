@@ -24,17 +24,28 @@ export default function Solutions() {
   ];
 
   return (
-    <div className="min-h-screen bg-black pt-24 pb-12">
+    <div className="min-h-screen bg-black pb-12">
       {/* Hero Section */}
-      <section className="container mx-auto px-6 py-16 md:py-24 text-center">
-        <h1 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight">Tailored <span className="text-gold">Solutions</span></h1>
-        <p className="text-zinc-400 max-w-2xl mx-auto text-lg md:text-xl">
-          Beyond products, we offer end-to-end services to ensure your lighting project is a complete success from concept to completion.
-        </p>
+      <section className="relative h-[80vh] flex flex-col items-center justify-center text-center border-b border-white/10 mb-12">
+        <div className="absolute inset-0 overflow-hidden">
+          <img 
+            src="/images/office_lighting.png" 
+            alt="Tailored Solutions" 
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-black/30"></div>
+        </div>
+        
+        <div className="relative z-10 container mx-auto px-6 mt-12">
+          <h1 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight opacity-0 animate-fade-in-up delay-100">Tailored <span className="text-gold">Solutions</span></h1>
+          <p className="text-zinc-200 max-w-2xl mx-auto text-lg md:text-xl opacity-0 animate-fade-in-up delay-200">
+            Beyond products, we offer end-to-end services to ensure your lighting project is a complete success from concept to completion.
+          </p>
+        </div>
       </section>
 
       {/* Services Section */}
-      <section className="container mx-auto px-6 py-12">
+      <section data-aos="fade-up" className="container mx-auto px-6 py-12">
         <div className="space-y-24">
           {services.map((service, index) => (
             <div key={index} className={`flex flex-col md:flex-row gap-12 items-center ${index % 2 !== 0 ? 'md:flex-row-reverse' : ''}`}>
@@ -73,7 +84,7 @@ export default function Solutions() {
       </section>
 
       {/* Process Section */}
-      <section className="bg-zinc-900/50 py-24 mt-24 border-y border-white/5">
+      <section data-aos="fade-up" className="bg-zinc-900/50 py-24 mt-24 border-y border-white/5">
         <div className="container mx-auto px-6">
           <h2 className="text-3xl md:text-4xl font-bold mb-16 text-center">Our Process</h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
@@ -92,7 +103,7 @@ export default function Solutions() {
       </section>
       
       {/* CTA */}
-      <section className="container mx-auto px-6 py-24 text-center">
+      <section data-aos="fade-up" className="container mx-auto px-6 py-24 text-center">
         <h2 className="text-3xl font-bold mb-8">Ready to upgrade your infrastructure?</h2>
         <Link to="/contact" className="inline-flex items-center gap-2 bg-gold text-black font-bold px-8 py-4 hover:bg-white transition-colors rounded-sm uppercase tracking-wider text-sm">
           Request a Consultation <ArrowRight size={18} />

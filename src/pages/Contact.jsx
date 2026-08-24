@@ -2,16 +2,27 @@ import { Mail, MapPin, Phone } from 'lucide-react';
 
 export default function Contact() {
   return (
-    <div className="min-h-screen bg-black pt-24 pb-12">
+    <div className="min-h-screen bg-black pb-12">
       {/* Hero Section */}
-      <section className="container mx-auto px-6 py-12 text-center">
-        <h1 className="text-4xl md:text-5xl font-bold mb-4 tracking-tight">Get in <span className="text-gold">Touch</span></h1>
-        <p className="text-zinc-400 max-w-xl mx-auto text-lg">
-          Whether you have a question about our products, need a custom solution, or want to partner with us, we're ready to hear from you.
-        </p>
+      <section className="relative h-[80vh] flex flex-col items-center justify-center text-center border-b border-white/10 mb-12">
+        <div className="absolute inset-0 overflow-hidden">
+          <img 
+            src="/images/office_lighting.png" 
+            alt="Contact Us" 
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-black/30"></div>
+        </div>
+        
+        <div className="relative z-10 container mx-auto px-6 mt-12">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4 tracking-tight opacity-0 animate-fade-in-up delay-100">Get in <span className="text-gold">Touch</span></h1>
+          <p className="text-zinc-200 max-w-xl mx-auto text-lg opacity-0 animate-fade-in-up delay-200">
+            Whether you have a question about our products, need a custom solution, or want to partner with us, we're ready to hear from you.
+          </p>
+        </div>
       </section>
 
-      <section className="container mx-auto px-6 py-12">
+      <section data-aos="fade-up" className="container mx-auto px-6 py-12">
         <div className="grid md:grid-cols-2 gap-12 lg:gap-24">
           
           {/* Contact Information */}

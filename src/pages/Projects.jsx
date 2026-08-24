@@ -48,17 +48,28 @@ export default function Projects() {
   ];
 
   return (
-    <div className="min-h-screen bg-black pt-24 pb-12">
+    <div className="min-h-screen bg-black pb-12">
       {/* Hero Section */}
-      <section className="container mx-auto px-6 py-16 md:py-24 text-center">
-        <h1 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight">Featured <span className="text-gold">Projects</span></h1>
-        <p className="text-zinc-400 max-w-2xl mx-auto text-lg md:text-xl">
-          Explore our portfolio of successful installations across various industries, showcasing our commitment to excellence and innovation.
-        </p>
+      <section className="relative h-[80vh] flex flex-col items-center justify-center text-center border-b border-white/10 mb-12">
+        <div className="absolute inset-0 overflow-hidden">
+          <img 
+            src="/images/hero_bg.png" 
+            alt="Featured Projects" 
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-black/30"></div>
+        </div>
+        
+        <div className="relative z-10 container mx-auto px-6 mt-12">
+          <h1 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight opacity-0 animate-fade-in-up delay-100">Featured <span className="text-gold">Projects</span></h1>
+          <p className="text-zinc-200 max-w-2xl mx-auto text-lg md:text-xl opacity-0 animate-fade-in-up delay-200">
+            Explore our portfolio of successful installations across various industries, showcasing our commitment to excellence and innovation.
+          </p>
+        </div>
       </section>
 
       {/* Projects Grid */}
-      <section className="container mx-auto px-6 py-12">
+      <section data-aos="fade-up" className="container mx-auto px-6 py-12">
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects.map((project, index) => (
             <div key={index} className="group relative h-[400px] overflow-hidden rounded-sm cursor-pointer">
@@ -94,7 +105,7 @@ export default function Projects() {
       </section>
 
       {/* CTA */}
-      <section className="container mx-auto px-6 py-24">
+      <section data-aos="fade-up" className="container mx-auto px-6 py-24">
         <div className="text-center max-w-3xl mx-auto">
           <h2 className="text-3xl font-bold mb-6">Have a project in mind?</h2>
           <p className="text-zinc-400 mb-8">
