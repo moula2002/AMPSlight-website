@@ -1,8 +1,30 @@
 import { ArrowRight, Lightbulb, Zap, Clock, Headphones, CheckCircle2 } from 'lucide-react'
-import { Link } from 'react-router-dom'
-import { featuredProducts } from '../data/products'
+import { Link, useNavigate } from 'react-router-dom'
+import { useState, useEffect } from 'react'
+import api from '../api/axiosInstance'
 
 export default function Home() {
+  const [categories, setCategories] = useState([])
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    const fetchCategories = async () => {
+      try {
+        const response = await api.get('/categories')
+        setCategories(response.data.slice(0, 6)) // Show top 6 categories
+      } catch (err) {
+        console.error('Failed to load categories', err)
+      }
+    }
+    fetchCategories()
+  }, [])
+
+  const processImageUrl = (url) => {
+    if (!url) return '';
+    if (url.startsWith('data:') || url.startsWith('http')) return url;
+    return `https://ampslight-server.onrender.com${url}`;
+  };
+
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
@@ -133,13 +155,13 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
-            {featuredProducts.map((prod, idx) => (
-              <div key={idx} className="bg-zinc-50 border border-zinc-100 rounded-lg p-6 hover:shadow-xl transition-all group flex flex-col items-center text-center cursor-pointer">
+            {categories.map((cat, idx) => (
+              <div key={idx} onClick={() => navigate(`/products?category=${cat._id}`)} className="bg-zinc-50 border border-zinc-100 rounded-lg p-6 hover:shadow-xl transition-all group flex flex-col items-center text-center cursor-pointer">
                 <div className="w-24 h-24 bg-white rounded-full mb-6 flex items-center justify-center shadow-inner overflow-hidden border border-zinc-100 p-2">
-                  <img src={prod.img} alt={prod.title} className="w-full h-full object-contain rounded-full group-hover:scale-110 transition-transform" />
+                  <img src={processImageUrl(cat.imageUrl) || '/images/hero_bg.png'} alt={cat.name} className="w-full h-full object-contain rounded-full group-hover:scale-110 transition-transform mix-blend-multiply" />
                 </div>
-                <h4 className="font-bold text-sm mb-2">{prod.title}</h4>
-                <p className="text-zinc-500 text-xs mb-4">{prod.desc}</p>
+                <h4 className="font-bold text-sm mb-2 text-black">{cat.name}</h4>
+                <p className="text-zinc-500 text-[10px] mb-4 line-clamp-2">{cat.description || 'Premium lighting solution'}</p>
                 <ArrowRight size={16} className="text-zinc-300 group-hover:text-gold transition-colors mt-auto" />
               </div>
             ))}

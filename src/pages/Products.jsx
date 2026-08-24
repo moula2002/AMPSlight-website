@@ -1,121 +1,138 @@
-import { ArrowRight, Box, Cpu, Factory, Home } from 'lucide-react';
-import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import { ArrowRight } from 'lucide-react';
 import api from '../api/axiosInstance';
 
-const getIcon = (title) => {
-  if (!title) return <Box className="w-10 h-10 text-gold mb-6" />;
-  const lowerTitle = title.toLowerCase();
-  if (lowerTitle.includes('commercial')) return <Box className="w-10 h-10 text-gold mb-6" />;
-  if (lowerTitle.includes('industrial')) return <Factory className="w-10 h-10 text-gold mb-6" />;
-  if (lowerTitle.includes('residential')) return <Home className="w-10 h-10 text-gold mb-6" />;
-  if (lowerTitle.includes('smart')) return <Cpu className="w-10 h-10 text-gold mb-6" />;
-  return <Box className="w-10 h-10 text-gold mb-6" />;
-};
-
 export default function Products() {
+  const [products, setProducts] = useState([]);
   const [categories, setCategories] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState('All');
+  const location = useLocation();
 
   useEffect(() => {
-    const fetchCategories = async () => {
+    const fetchData = async () => {
       try {
-        const response = await api.get('/categories/with-products');
-        setCategories(response.data);
+        const [prodRes, catRes] = await Promise.all([
+          api.get('/products'),
+          api.get('/categories')
+        ]);
+        setProducts(prodRes.data);
+        setCategories(catRes.data);
+        
+        // Parse query params for category filter if it exists
+        const params = new URLSearchParams(location.search);
+        const catParam = params.get('category');
+        if (catParam) {
+          const found = catRes.data.find(c => c._id === catParam);
+          if (found) setSelectedCategory(found.name);
+        }
       } catch (err) {
         setError('Failed to load products. Please try again later.');
-        console.error('Error fetching categories:', err);
+        console.error('Error fetching data:', err);
       } finally {
         setLoading(false);
       }
     };
 
-    fetchCategories();
-  }, []);
+    fetchData();
+  }, [location.search]);
+
+  const filteredProducts = selectedCategory === 'All' 
+    ? products 
+    : products.filter(p => p.category && p.category.name === selectedCategory);
+
+  const processImageUrl = (url) => {
+    if (!url) return '';
+    if (url.startsWith('data:') || url.startsWith('http')) return url;
+    return `https://ampslight-server.onrender.com${url}`;
+  };
+
+  const heroTitle = selectedCategory === 'All' ? 'Our Products' : selectedCategory;
+  const heroDesc = selectedCategory === 'All' 
+    ? 'Premium lighting built to perform and designed to impress.'
+    : `Premium ${selectedCategory.toLowerCase()} built to perform and designed to impress.`;
 
   return (
-    <div className="min-h-screen bg-black pb-12">
+    <div className="min-h-screen bg-white text-black font-sans pb-24">
       {/* Hero Section */}
-      <section className="relative h-[80vh] flex flex-col items-center justify-center text-center border-b border-white/10">
-        <div className="absolute inset-0 overflow-hidden">
+      <section className="relative h-[65vh] flex flex-col justify-end text-left pb-20">
+        <div className="absolute inset-0 overflow-hidden bg-black">
           <img 
-            src="/images/industrial_lighting.png" 
-            alt="Our Products" 
-            className="w-full h-full object-cover"
+            src="/images/hero_bg.png" 
+            alt="Hero Background" 
+            className="w-full h-full object-cover opacity-80"
           />
-          <div className="absolute inset-0 bg-black/30"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
         </div>
 
-        <div className="relative z-10 container mx-auto px-6 mt-12">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight opacity-0 animate-fade-in-up delay-100">Our <span className="text-gold">Products</span></h1>
-          <p className="text-zinc-200 max-w-2xl mx-auto text-lg md:text-xl opacity-0 animate-fade-in-up delay-200">
-            Explore our comprehensive range of lighting fixtures designed for performance, longevity, and aesthetic appeal.
+        <div className="relative z-10 container mx-auto px-6">
+          <h1 className="text-5xl md:text-7xl font-bold mb-4 text-white tracking-tight">{heroTitle}</h1>
+          <p className="text-white/80 text-lg md:text-xl max-w-2xl font-medium">
+            {heroDesc}
           </p>
         </div>
       </section>
 
-      {/* Product Categories Grid */}
-      <section data-aos="fade-up" className="container mx-auto px-6 py-12">
-        <div className="grid md:grid-cols-2 gap-8">
-          {loading ? (
-            <div className="col-span-2 text-center text-white py-12">Loading products...</div>
-          ) : error ? (
-            <div className="col-span-2 text-center text-red-500 py-12">{error}</div>
-          ) : (
-            categories.map((category) => (
-              <div key={category._id} className="bg-zinc-900/30 border border-white/5 p-8 md:p-12 hover:border-gold/30 transition-colors duration-300 rounded-sm group relative overflow-hidden">
-                {/* Subtle background glow effect on hover */}
-                <div className="absolute inset-0 bg-gold/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
-                
-                <div className="relative z-10">
-                  {getIcon(category.name)}
-                  <h2 className="text-2xl md:text-3xl font-bold mb-4">{category.name}</h2>
-                  <p className="text-zinc-400 mb-8 min-h-[80px]">
-                    {category.description}
-                  </p>
-                  
-                  <div className="mb-8">
-                    <h3 className="text-sm font-semibold text-zinc-300 uppercase tracking-widest mb-4">Key Lines</h3>
-                    <ul className="grid grid-cols-2 gap-3 text-zinc-500 text-sm">
-                      {category.products && category.products.length > 0 ? (
-                        category.products.map((product, fIndex) => (
-                          <li key={fIndex} className="flex items-center gap-2">
-                            <span className="w-1.5 h-1.5 rounded-full bg-gold/50 shrink-0"></span>
-                            <Link to={`/product/${product._id}`} className="hover:text-gold transition-colors truncate">
-                              {product.title}
-                            </Link>
-                          </li>
-                        ))
-                      ) : (
-                        <li className="text-zinc-600 col-span-2">More products coming soon</li>
-                      )}
-                    </ul>
-                  </div>
-                  
-                  <button className="flex items-center gap-2 text-gold font-semibold uppercase text-xs tracking-widest group-hover:text-white transition-colors">
-                    Explore Range <ArrowRight size={14} />
-                  </button>
-                </div>
-              </div>
-            ))
-          )}
+      {/* Filter / Navigation */}
+      <div className="border-b border-gray-200 bg-white sticky top-0 z-40">
+        <div className="container mx-auto px-6 py-5 flex flex-wrap gap-8 items-center">
+           <button 
+             onClick={() => setSelectedCategory('All')} 
+             className={`text-xs font-bold uppercase tracking-widest transition-colors ${selectedCategory === 'All' ? 'text-black border-b-2 border-black pb-1' : 'text-gray-400 hover:text-black pb-1'}`}
+           >
+             All Products
+           </button>
+           {categories.map(cat => (
+             <button 
+               key={cat._id} 
+               onClick={() => setSelectedCategory(cat.name)} 
+               className={`text-xs font-bold uppercase tracking-widest transition-colors ${selectedCategory === cat.name ? 'text-black border-b-2 border-black pb-1' : 'text-gray-400 hover:text-black pb-1'}`}
+             >
+               {cat.name}
+             </button>
+           ))}
         </div>
-      </section>
+      </div>
 
-      {/* CTA */}
-      <section data-aos="fade-up" className="container mx-auto px-6 py-24">
-        <div className="flex flex-col md:flex-row items-center justify-between bg-zinc-900/50 border border-white/5 p-12 rounded-sm">
-          <div className="mb-8 md:mb-0 md:mr-12">
-            <h2 className="text-3xl font-bold mb-4">Need a custom product catalog?</h2>
-            <p className="text-zinc-400">Download our complete specifications guide or speak with a specialist.</p>
+      <section className="container mx-auto px-6 py-16">
+        {/* Product Grid */}
+        {loading ? (
+          <div className="text-center text-black py-24 text-xl font-bold uppercase tracking-widest animate-pulse">Loading Catalog...</div>
+        ) : error ? (
+          <div className="text-center text-red-500 py-24">{error}</div>
+        ) : filteredProducts.length === 0 ? (
+          <div className="text-center text-gray-500 py-24 text-lg">No products found in this category.</div>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 border-t border-l border-gray-200">
+            {filteredProducts.map(product => (
+              <Link 
+                to={`/product/${product._id}`} 
+                key={product._id} 
+                className="group border-r border-b border-gray-200 bg-white flex flex-col hover:bg-gray-50 transition-colors"
+              >
+                <div className="p-12 flex items-center justify-center relative min-h-[350px]">
+                  <img 
+                    src={processImageUrl(product.imageUrl) || '/images/hero_bg.png'} 
+                    alt={product.title} 
+                    className="max-w-full max-h-[250px] object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-700"
+                  />
+                </div>
+                <div className="p-8 border-t border-gray-200 flex-1 flex flex-col">
+                  {product.sku && <p className="text-gray-400 text-[10px] font-bold uppercase tracking-widest mb-2">{product.sku}</p>}
+                  <h3 className="text-xl font-bold mb-3 text-black group-hover:text-gold transition-colors">{product.title}</h3>
+                  <p className="text-gray-500 text-sm leading-relaxed mb-6">
+                    {product.shortDescription || product.fullDescription || "Premium quality lighting fixture designed for longevity and performance."}
+                  </p>
+                  <div className="mt-auto flex items-center gap-2 text-black font-bold text-xs uppercase tracking-widest group-hover:gap-4 transition-all">
+                    View Details <ArrowRight size={14} className="text-gold" />
+                  </div>
+                </div>
+              </Link>
+            ))}
           </div>
-          <div className="flex gap-4">
-            <Link to="/contact" className="bg-gold text-black font-bold px-8 py-4 hover:bg-white transition-colors rounded-sm uppercase tracking-wider text-sm whitespace-nowrap">
-              Contact Sales
-            </Link>
-          </div>
-        </div>
+        )}
       </section>
     </div>
   );
