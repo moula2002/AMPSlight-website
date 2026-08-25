@@ -2,6 +2,7 @@ import { ArrowRight, Lightbulb, Zap, Clock, Headphones, CheckCircle2 } from 'luc
 import { Link, useNavigate } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import api from '../api/axiosInstance'
+import Banner from '../components/Banner'
 
 export default function Home() {
   const [categories, setCategories] = useState([])
@@ -33,39 +34,7 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
-      <section className="relative min-h-[75vh] flex items-center bg-black border-b border-gray-200">
-        <div className="absolute inset-0 overflow-hidden">
-          <img
-            src="/images/perfect_hero.png"
-            alt="Modern Lighting"
-            className="w-full h-full object-cover opacity-100"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/20 to-transparent"></div>
-        </div>
-
-        <div className="container mx-auto px-6 relative z-10 pt-24 pb-32">
-          <div className="max-w-2xl">
-            <h3 className="text-gold uppercase tracking-[0.3em] text-xs font-bold mb-4 flex items-center gap-4 opacity-0 animate-fade-in-up delay-100">
-              <span className="w-12 h-[2px] bg-gold"></span>
-              Brighter Spaces, Better Living
-            </h3>
-            <h1 className="text-6xl md:text-8xl font-bold leading-[1.1] mb-8 text-white tracking-tight opacity-0 animate-fade-in-up delay-200">
-              Light That <br /> <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400">Inspires</span>
-            </h1>
-            <p className="text-gray-300 text-lg md:text-xl mb-12 max-w-lg font-medium opacity-0 animate-fade-in-up delay-300">
-              AMPSLITE delivers innovative, energy-efficient lighting solutions designed for longevity and performance.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-6 opacity-0 animate-fade-in-up delay-400">
-              <Link to="/products" className="bg-white text-black font-bold px-10 py-4 rounded-sm flex items-center justify-center gap-3 hover:bg-gold hover:text-white transition-colors uppercase tracking-widest text-sm shadow-xl">
-                Explore Products <ArrowRight size={18} />
-              </Link>
-              <Link to="/solutions" className="border-2 border-white/50 text-white font-bold px-10 py-4 rounded-sm flex items-center justify-center gap-3 hover:border-gold hover:text-gold transition-colors uppercase tracking-widest text-sm">
-                Our Solutions <ArrowRight size={18} />
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+      <Banner />
 
       {/* Features Banner */}
       <section data-aos="fade-up" data-aos-offset="-50" className="bg-white border border-gray-100 py-6 relative z-20 -mt-12 mx-6 md:mx-12 rounded-sm shadow-2xl">
