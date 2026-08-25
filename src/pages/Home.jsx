@@ -131,15 +131,18 @@ export default function Home() {
             </Link>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {categories.map((cat, idx) => (
-              <div key={idx} onClick={() => navigate(`/products?category=${cat._id}`)} className="bg-zinc-50 border border-zinc-100 rounded-lg p-6 hover:shadow-xl transition-all group flex flex-col items-center text-center cursor-pointer">
-                <div className="w-24 h-24 bg-white rounded-full mb-6 flex items-center justify-center shadow-inner overflow-hidden border border-zinc-100 p-2">
-                  <img src={processImageUrl(cat.imageUrl) || '/images/hero_bg.png'} alt={cat.name} className="w-full h-full object-contain rounded-full group-hover:scale-110 transition-transform mix-blend-multiply" />
+              <div key={idx} onClick={() => navigate(`/products?category=${cat._id}`)} className="bg-zinc-50 border border-zinc-100 rounded-2xl p-6 hover:shadow-2xl transition-all duration-300 group flex flex-col items-center text-center cursor-pointer transform hover:-translate-y-2">
+                <div className="w-full aspect-square bg-white rounded-xl mb-6 flex items-center justify-center shadow-sm overflow-hidden border border-zinc-100 p-4 relative">
+                  <img src={processImageUrl(cat.imageUrl) || '/images/hero_bg.png'} alt={cat.name} className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500 mix-blend-multiply relative z-10" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-zinc-50/50 to-transparent z-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </div>
-                <h4 className="font-bold text-sm mb-2 text-black">{cat.name}</h4>
-                <p className="text-zinc-500 text-[10px] mb-4 line-clamp-2">{cat.description || 'Premium lighting solution'}</p>
-                <ArrowRight size={16} className="text-zinc-300 group-hover:text-gold transition-colors mt-auto" />
+                <h4 className="font-bold text-lg mb-2 text-black group-hover:text-gold transition-colors">{cat.name}</h4>
+                <p className="text-zinc-500 text-xs mb-6 line-clamp-2 px-2 leading-relaxed">{cat.description || 'Explore our premium range of quality products tailored for your needs.'}</p>
+                <div className="mt-auto w-10 h-10 rounded-full bg-black/5 flex items-center justify-center text-black group-hover:bg-gold group-hover:text-white transition-all duration-300">
+                  <ArrowRight size={18} />
+                </div>
               </div>
             ))}
           </div>
