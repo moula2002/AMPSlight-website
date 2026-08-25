@@ -112,18 +112,7 @@ export default function Banner() {
               </h3>
               
               <h1 className="text-6xl md:text-8xl font-bold leading-[1.1] mb-8 text-white tracking-tight">
-                {banner.title ? (
-                  <>
-                    {banner.title.split(' ').slice(0, Math.ceil(banner.title.split(' ').length / 2)).join(' ')} <br />
-                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400">
-                      {banner.title.split(' ').slice(Math.ceil(banner.title.split(' ').length / 2)).join(' ')}
-                    </span>
-                  </>
-                ) : (
-                  <>
-                    Light That <br /> <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400">Inspires</span>
-                  </>
-                )}
+                Light That <br /> <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400">Inspires</span>
               </h1>
               
               <p className="text-gray-300 text-lg md:text-xl mb-12 max-w-lg font-medium">
@@ -131,20 +120,12 @@ export default function Banner() {
               </p>
               
               <div className="flex flex-col sm:flex-row gap-6">
-                {banner.linkUrl ? (
-                  <Link to={banner.linkUrl} className="bg-white text-black font-bold px-10 py-4 rounded-sm flex items-center justify-center gap-3 hover:bg-gold hover:text-white transition-colors uppercase tracking-widest text-sm shadow-xl">
-                    Discover More <ArrowRight size={18} />
-                  </Link>
-                ) : (
-                  <>
-                    <Link to="/products" className="bg-white text-black font-bold px-10 py-4 rounded-sm flex items-center justify-center gap-3 hover:bg-gold hover:text-white transition-colors uppercase tracking-widest text-sm shadow-xl">
-                      Explore Products <ArrowRight size={18} />
-                    </Link>
-                    <Link to="/solutions" className="border-2 border-white/50 text-white font-bold px-10 py-4 rounded-sm flex items-center justify-center gap-3 hover:border-gold hover:text-gold transition-colors uppercase tracking-widest text-sm">
-                      Our Solutions <ArrowRight size={18} />
-                    </Link>
-                  </>
-                )}
+                <Link to="/products" className="bg-white text-black font-bold px-10 py-4 rounded-sm flex items-center justify-center gap-3 hover:bg-gold hover:text-white transition-colors uppercase tracking-widest text-sm shadow-xl">
+                  Explore Products <ArrowRight size={18} />
+                </Link>
+                <Link to="/solutions" className="border-2 border-white/50 text-white font-bold px-10 py-4 rounded-sm flex items-center justify-center gap-3 hover:border-gold hover:text-gold transition-colors uppercase tracking-widest text-sm">
+                  Our Solutions <ArrowRight size={18} />
+                </Link>
               </div>
             </div>
           </div>
