@@ -40,41 +40,12 @@ export default function Banner() {
     return `https://ampslight-server.onrender.com${url}`;
   };
 
-  // Static Fallback
-  const staticBanner = (
-    <section className="relative min-h-[75vh] flex items-center bg-black border-b border-gray-200">
-      <div className="absolute inset-0 overflow-hidden">
-        <img
-          src="/images/perfect_hero.png"
-          alt="Modern Lighting"
-          className="w-full h-full object-cover opacity-100"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/20 to-transparent"></div>
-      </div>
-      <div className="container mx-auto px-6 relative z-10 pt-24 pb-32">
-        <div className="max-w-2xl">
-          <h3 className="text-gold uppercase tracking-[0.3em] text-xs font-bold mb-4 flex items-center gap-4 opacity-0 animate-fade-in-up delay-100">
-            <span className="w-12 h-[2px] bg-gold"></span>
-            Brighter Spaces, Better Living
-          </h3>
-          <h1 className="text-6xl md:text-8xl font-bold leading-[1.1] mb-8 text-white tracking-tight opacity-0 animate-fade-in-up delay-200">
-            Light That <br /> <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400">Inspires</span>
-          </h1>
-          <p className="text-gray-300 text-lg md:text-xl mb-12 max-w-lg font-medium opacity-0 animate-fade-in-up delay-300">
-            AMPSLITE delivers innovative, energy-efficient lighting solutions designed for longevity and performance.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-6 opacity-0 animate-fade-in-up delay-400">
-            <Link to="/products" className="bg-white text-black font-bold px-10 py-4 rounded-sm flex items-center justify-center gap-3 hover:bg-gold hover:text-white transition-colors uppercase tracking-widest text-sm shadow-xl">
-              Explore Products <ArrowRight size={18} />
-            </Link>
-            <Link to="/solutions" className="border-2 border-white/50 text-white font-bold px-10 py-4 rounded-sm flex items-center justify-center gap-3 hover:border-gold hover:text-gold transition-colors uppercase tracking-widest text-sm">
-              Our Solutions <ArrowRight size={18} />
-            </Link>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
+  // Static Fallback Image when no dynamic banners exist
+  const defaultImages = [
+    { _id: 'default-1', imageUrl: '/images/perfect_hero.png' }
+  ];
+
+  const displayBanners = banners.length > 0 ? banners : defaultImages;
 
   if (isLoading) {
     return (
@@ -84,77 +55,59 @@ export default function Banner() {
     );
   }
 
-  if (banners.length === 0) {
-    return staticBanner;
-  }
-
   return (
     <section className="relative min-h-[75vh] flex items-center bg-black border-b border-gray-200 overflow-hidden">
-      {banners.map((banner, index) => (
-        <div
-          key={banner._id || index}
-          className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
-            index === currentIndex ? 'opacity-100 z-10' : 'opacity-0 z-0'
-          }`}
-        >
-          <img
-            src={processImageUrl(banner.imageUrl)}
-            alt={banner.title || 'Modern Lighting'}
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/30 to-transparent"></div>
+      
+      {/* Background Carousel Loop */}
+      <div className="absolute inset-0 z-0">
+        {displayBanners.map((banner, index) => (
+          <div
+            key={banner._id || index}
+            className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+              index === currentIndex ? 'opacity-100' : 'opacity-0'
+            }`}
+          >
+            <img
+              src={processImageUrl(banner.imageUrl)}
+              alt="Modern Lighting"
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent"></div>
+          </div>
+        ))}
+      </div>
+      
+      {/* Static Text Overlay - Always visible regardless of image */}
+      <div className="container mx-auto px-6 relative z-10 pt-24 pb-32 h-full flex items-center pointer-events-none">
+        <div className="max-w-2xl transform transition-all duration-1000 pointer-events-auto opacity-100 translate-y-0">
+          <h3 className="text-gold uppercase tracking-[0.3em] text-xs font-bold mb-4 flex items-center gap-4">
+            <span className="w-12 h-[2px] bg-gold"></span>
+            Brighter Spaces, Better Living
+          </h3>
           
-          <div className="container mx-auto px-6 relative z-10 pt-24 pb-32 h-full flex items-center">
-            <div className={`max-w-2xl transform transition-all duration-1000 delay-300 ${index === currentIndex ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-              <h3 className="text-gold uppercase tracking-[0.3em] text-xs font-bold mb-4 flex items-center gap-4">
-                <span className="w-12 h-[2px] bg-gold"></span>
-                Brighter Spaces, Better Living
-              </h3>
-              
-              <h1 className="text-6xl md:text-8xl font-bold leading-[1.1] mb-8 text-white tracking-tight">
-                {banner.title ? (
-                  <>
-                    {banner.title.split(' ').slice(0, Math.ceil(banner.title.split(' ').length / 2)).join(' ')} <br />
-                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400">
-                      {banner.title.split(' ').slice(Math.ceil(banner.title.split(' ').length / 2)).join(' ')}
-                    </span>
-                  </>
-                ) : (
-                  <>
-                    Light That <br /> <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400">Inspires</span>
-                  </>
-                )}
-              </h1>
-              
-              <p className="text-gray-300 text-lg md:text-xl mb-12 max-w-lg font-medium">
-                AMPSLITE delivers innovative, energy-efficient lighting solutions designed for longevity and performance.
-              </p>
-              
-              <div className="flex flex-col sm:flex-row gap-6">
-                {banner.linkUrl ? (
-                  <Link to={banner.linkUrl} className="bg-white text-black font-bold px-10 py-4 rounded-sm flex items-center justify-center gap-3 hover:bg-gold hover:text-white transition-colors uppercase tracking-widest text-sm shadow-xl">
-                    Discover More <ArrowRight size={18} />
-                  </Link>
-                ) : (
-                  <>
-                    <Link to="/products" className="bg-white text-black font-bold px-10 py-4 rounded-sm flex items-center justify-center gap-3 hover:bg-gold hover:text-white transition-colors uppercase tracking-widest text-sm shadow-xl">
-                      Explore Products <ArrowRight size={18} />
-                    </Link>
-                    <Link to="/solutions" className="border-2 border-white/50 text-white font-bold px-10 py-4 rounded-sm flex items-center justify-center gap-3 hover:border-gold hover:text-gold transition-colors uppercase tracking-widest text-sm">
-                      Our Solutions <ArrowRight size={18} />
-                    </Link>
-                  </>
-                )}
-              </div>
-            </div>
+          <h1 className="text-6xl md:text-8xl font-bold leading-[1.1] mb-8 text-white tracking-tight">
+            Light That <br /> <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400">Inspires</span>
+          </h1>
+          
+          <p className="text-gray-300 text-lg md:text-xl mb-12 max-w-lg font-medium">
+            AMPSLITE delivers innovative, energy-efficient lighting solutions designed for longevity and performance.
+          </p>
+          
+          <div className="flex flex-col sm:flex-row gap-6">
+            <Link to="/products" className="bg-white text-black font-bold px-10 py-4 rounded-sm flex items-center justify-center gap-3 hover:bg-gold hover:text-white transition-colors uppercase tracking-widest text-sm shadow-xl">
+              Explore Products <ArrowRight size={18} />
+            </Link>
+            <Link to="/solutions" className="border-2 border-white/50 text-white font-bold px-10 py-4 rounded-sm flex items-center justify-center gap-3 hover:border-gold hover:text-gold transition-colors uppercase tracking-widest text-sm">
+              Our Solutions <ArrowRight size={18} />
+            </Link>
           </div>
         </div>
-      ))}
+      </div>
       
       {/* Carousel Dots */}
-      {banners.length > 1 && (
+      {displayBanners.length > 1 && (
         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-30 flex gap-3">
-          {banners.map((_, index) => (
+          {displayBanners.map((_, index) => (
             <button
               key={index}
               onClick={() => setCurrentIndex(index)}
