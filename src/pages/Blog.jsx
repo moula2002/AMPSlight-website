@@ -98,27 +98,6 @@ export default function Blog() {
           ))}
         </div>
       </section>
-
-      {/* Newsletter CTA */}
-      <section data-aos="fade-up" className="container mx-auto px-6 py-24">
-        <div className="bg-zinc-950 border border-white/10 p-12 text-center rounded-sm max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold mb-4">Subscribe to Our Newsletter</h2>
-          <p className="text-zinc-400 mb-8 max-w-xl mx-auto">
-            Get the latest lighting insights, product announcements, and design inspiration delivered directly to your inbox.
-          </p>
-          <form className="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto" onSubmit={(e) => e.preventDefault()}>
-            <input 
-              type="email" 
-              placeholder="Enter your email address" 
-              className="flex-1 bg-zinc-900 border border-white/20 rounded-sm px-4 py-3 text-white focus:outline-none focus:border-gold transition-colors"
-              required
-            />
-            <button type="submit" className="bg-gold text-black font-bold px-8 py-3 rounded-sm hover:bg-white transition-colors uppercase tracking-wider text-sm">
-              Subscribe
-            </button>
-          </form>
-        </div>
-      </section>
     </div>
   )
 }
