@@ -103,7 +103,7 @@ export default function Navbar() {
 
         {/* Logo */}
         <Link to="/" className="flex items-center justify-center shrink-0 mx-4 xl:mx-8" onClick={closeMobileMenu}>
-          <img src={Logo} alt="AMPSLITE Logo" className={`object-contain mix-blend-screen transition-all duration-500 ${isScrolled ? 'h-8 md:h-10 lg:h-12' : 'h-12 md:h-14 lg:h-16'}`} />
+          <img src={Logo} alt="AMPSCABLE Logo" className={`object-contain mix-blend-screen transition-all duration-500 ${isScrolled ? 'h-8 md:h-10 lg:h-12' : 'h-12 md:h-14 lg:h-16'}`} />
         </Link>
 
         {/* Desktop Right Links */}

@@ -108,7 +108,7 @@ export default function Banner() {
             >
               <img
                 src={processImageUrl(banner.imageUrl)}
-                alt="Modern Lighting"
+                alt="Modern Cable Solutions"
                 className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent"></div>
@@ -122,15 +122,15 @@ export default function Banner() {
         <div className="max-w-2xl transform transition-all duration-1000 pointer-events-auto opacity-100 translate-y-0">
           <h3 className="text-gold uppercase tracking-[0.3em] text-xs font-bold mb-4 flex items-center gap-4">
             <span className="w-12 h-[2px] bg-gold"></span>
-            Brighter Spaces, Better Living
+            Premium Wires & Cables
           </h3>
           
           <h1 className="text-6xl md:text-8xl font-bold leading-[1.1] mb-8 text-white tracking-tight">
-            Light That <br /> <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400">Inspires</span>
+            Power That <br /> <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400">Connects</span>
           </h1>
           
           <p className="text-gray-300 text-lg md:text-xl mb-12 max-w-lg font-medium">
-            AMPSLITE delivers innovative, energy-efficient lighting solutions designed for longevity and performance.
+            AMPSLITE delivers innovative, high-performance wires and cables designed for safety, durability, and superior conductivity.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-6">

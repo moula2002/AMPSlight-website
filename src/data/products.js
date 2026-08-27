@@ -1,39 +1,39 @@
 export const productCategories = [
   {
-    id: "commercial-lighting",
-    title: "Commercial Lighting",
-    iconName: "Box",
-    description: "High-performance fixtures designed for offices, retail spaces, and public buildings. Combining aesthetics with optimal lumen output.",
-    features: ["Panel Lights", "Downlights", "Track Lighting", "Linear Pendants"]
+    id: "commercial-wiring",
+    title: "Commercial Wiring",
+    iconName: "Network",
+    description: "High-performance electrical cables designed for offices, retail spaces, and public buildings. Combining safety with optimal conductivity.",
+    features: ["Building Wires", "Data Cables", "Fire-Resistant Cables", "Flexible Cords"]
   },
   {
-    id: "industrial-lighting",
-    title: "Industrial Lighting",
+    id: "industrial-cables",
+    title: "Industrial Cables",
     iconName: "Factory",
-    description: "Rugged, durable lighting solutions built to withstand harsh environments while maximizing safety and visibility.",
-    features: ["High Bay Lights", "Flood Lights", "Vapor Tight Fixtures", "Explosion Proof"]
+    description: "Rugged, heavy-duty cable solutions built to withstand harsh environments while maximizing safety and power transmission.",
+    features: ["Armoured Power Cables", "High Voltage Cables", "Control Cables", "Instrumentation Cables"]
   },
   {
-    id: "residential-lighting",
-    title: "Residential Lighting",
+    id: "residential-wiring",
+    title: "House Wires & Cables",
     iconName: "Home",
-    description: "Elegant and warm lighting options to enhance the comfort and beauty of living spaces.",
-    features: ["Chandeliers", "Wall Sconces", "Recessed Lighting", "Outdoor Landscape"]
+    description: "Reliable and safe wiring options to ensure the safety and power efficiency of residential spaces.",
+    features: ["Single Core Cables", "Multi Core Cables", "Flat Cables", "Coaxial Cables"]
   },
   {
-    id: "smart-lighting",
-    title: "Smart Lighting",
-    iconName: "Cpu",
-    description: "Intelligent systems with IoT integration for automated control, energy tracking, and adaptive illumination.",
-    features: ["Sensors", "Dimming Controls", "Smart Bulbs", "Centralized Hubs"]
+    id: "control-cables",
+    title: "Control & Instrumentation",
+    iconName: "Settings",
+    description: "Intelligent cabling systems for automated control, precise signaling, and reliable data transmission.",
+    features: ["Shielded Cables", "Signal Cables", "Automation Wires", "Telecom Cables"]
   }
 ];
 
 export const featuredProducts = [
-  { id: 1, title: 'LED Downlights', desc: 'Sleek & efficient downlighting.', img: '/images/led_downlight.png', category: 'commercial-lighting' },
-  { id: 2, title: 'Spot Lights', desc: 'Focused lighting for highlight areas.', img: '/images/spot_light.png', category: 'commercial-lighting' },
-  { id: 3, title: 'Panel Lights', desc: 'Even illumination for any space.', img: '/images/panel_light.png', category: 'commercial-lighting' },
-  { id: 4, title: 'Street Lights', desc: 'Reliable performance for outdoor.', img: '/images/street_light.png', category: 'industrial-lighting' },
-  { id: 5, title: 'Flood Lights', desc: 'Powerful lighting for large areas.', img: '/images/flood_light.png', category: 'industrial-lighting' },
-  { id: 6, title: 'Indoor Lights', desc: 'Stylish lighting for your interiors.', img: '/images/residential_lighting.png', category: 'residential-lighting' }
+  { id: 1, title: 'Building Wires', desc: 'Sleek & efficient single core wires.', img: '/images/building_wire.png', category: 'commercial-wiring' },
+  { id: 2, title: 'Data Cables', desc: 'High-speed networking cables.', img: '/images/data_cable.png', category: 'commercial-wiring' },
+  { id: 3, title: 'Fire-Resistant Cables', desc: 'Maximum safety for any space.', img: '/images/fire_resistant.png', category: 'commercial-wiring' },
+  { id: 4, title: 'Armoured Power Cables', desc: 'Reliable performance for heavy loads.', img: '/images/armoured_cable.png', category: 'industrial-cables' },
+  { id: 5, title: 'Control Cables', desc: 'Reliable cables for automation systems.', img: '/images/control_cable.png', category: 'industrial-cables' },
+  { id: 6, title: 'House Wires', desc: 'Safe wiring for your interiors.', img: '/images/house_wire.png', category: 'residential-wiring' }
 ];

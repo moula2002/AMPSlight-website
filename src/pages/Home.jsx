@@ -1,4 +1,4 @@
-import { ArrowRight, Lightbulb, Zap, Clock, Headphones, CheckCircle2 } from 'lucide-react'
+import { ArrowRight, Cable, Zap, Shield, Factory, CheckCircle2 } from 'lucide-react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import api from '../api/axiosInstance'
@@ -41,31 +41,31 @@ export default function Home() {
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6 divide-y md:divide-y-0 md:divide-x divide-gray-100">
             <div className="flex items-start gap-4 md:px-6 pt-4 md:pt-0">
-              <Lightbulb className="text-gold shrink-0 mt-1" size={24} />
+              <Cable className="text-gold shrink-0 mt-1" size={24} />
               <div>
-                <h4 className="font-bold text-sm uppercase tracking-wider mb-1 text-black">Innovative</h4>
-                <p className="text-gray-500 text-xs font-medium leading-relaxed">Smart & modern lighting solutions designed for impact.</p>
+                <h4 className="font-bold text-sm uppercase tracking-wider mb-1 text-black">High Quality</h4>
+                <p className="text-gray-500 text-xs font-medium leading-relaxed">Premium raw materials and strict quality control.</p>
+              </div>
+            </div>
+            <div className="flex items-start gap-4 md:px-6 pt-4 md:pt-0">
+              <Shield className="text-gold shrink-0 mt-1" size={24} />
+              <div>
+                <h4 className="font-bold text-sm uppercase tracking-wider mb-1 text-black">Safe & Reliable</h4>
+                <p className="text-gray-500 text-xs font-medium leading-relaxed">Designed for dependable electrical performance and safety.</p>
+              </div>
+            </div>
+            <div className="flex items-start gap-4 md:px-6 pt-4 md:pt-0">
+              <Factory className="text-gold shrink-0 mt-1" size={24} />
+              <div>
+                <h4 className="font-bold text-sm uppercase tracking-wider mb-1 text-black">Wide Range</h4>
+                <p className="text-gray-500 text-xs font-medium leading-relaxed">Residential, commercial and industrial cable solutions.</p>
               </div>
             </div>
             <div className="flex items-start gap-4 md:px-6 pt-4 md:pt-0">
               <Zap className="text-gold shrink-0 mt-1" size={24} />
               <div>
-                <h4 className="font-bold text-sm uppercase tracking-wider mb-1 text-black">Efficient</h4>
-                <p className="text-gray-500 text-xs font-medium leading-relaxed">Sustainable products for a greener, brighter tomorrow.</p>
-              </div>
-            </div>
-            <div className="flex items-start gap-4 md:px-6 pt-4 md:pt-0">
-              <Clock className="text-gold shrink-0 mt-1" size={24} />
-              <div>
-                <h4 className="font-bold text-sm uppercase tracking-wider mb-1 text-black">Reliable</h4>
-                <p className="text-gray-500 text-xs font-medium leading-relaxed">Built to last with premium materials and rigorous testing.</p>
-              </div>
-            </div>
-            <div className="flex items-start gap-4 md:px-6 pt-4 md:pt-0">
-              <Headphones className="text-gold shrink-0 mt-1" size={24} />
-              <div>
-                <h4 className="font-bold text-sm uppercase tracking-wider mb-1 text-black">Supported</h4>
-                <p className="text-gray-500 text-xs font-medium leading-relaxed">Expert customer service to assist with all your needs.</p>
+                <h4 className="font-bold text-sm uppercase tracking-wider mb-1 text-black">On-Time Delivery</h4>
+                <p className="text-gray-500 text-xs font-medium leading-relaxed">Reliable supply and customer-focused service.</p>
               </div>
             </div>
           </div>
@@ -77,7 +77,7 @@ export default function Home() {
         <div className="flex flex-col lg:flex-row gap-20 items-center">
           <div className="lg:w-1/2 relative group">
             <div className="aspect-[4/3] w-full bg-gray-100 border border-gray-200 p-4 relative overflow-hidden flex items-center justify-center">
-              <img src="/images/all.png" alt="AMPSLITE Quality" className="w-full h-full object-cover shadow-sm group-hover:scale-105 transition-transform duration-700" />
+              <img src="/images/wire.png" alt="AMPSCABLE Quality" className="w-full h-full object-cover shadow-sm group-hover:scale-105 transition-transform duration-700" />
             </div>
             {/* Decorative architectural accents */}
             <div className="absolute -bottom-6 -left-6 w-32 h-1 bg-gold z-10"></div>
@@ -90,12 +90,12 @@ export default function Home() {
           </div>
           <div className="lg:w-1/2">
             <h3 className="text-gold uppercase tracking-widest text-xs font-bold mb-4">Who We Are</h3>
-            <h2 className="text-4xl md:text-5xl font-bold mb-8 text-black leading-tight">Pioneering the Future of Illumination</h2>
+            <h2 className="text-4xl md:text-5xl font-bold mb-8 text-black leading-tight">Connecting India with Quality & Trust</h2>
             <p className="text-gray-500 text-lg mb-6 leading-relaxed font-medium">
-              For over a decade, AMPSLITE has been dedicated to transforming ordinary spaces into extraordinary experiences through the power of light. We blend cutting-edge technology with elegant design to deliver lighting solutions that are as beautiful as they are highly efficient.
+              For over a decade, AMPSLITE has been dedicated to manufacturing premium electrical wires and cables. We blend advanced engineering with robust materials to deliver high-conductivity solutions that are reliable, durable, and extremely safe.
             </p>
             <p className="text-gray-500 text-lg mb-10 leading-relaxed font-medium">
-              From sprawling industrial complexes to luxury residential homes, our commitment to quality, sustainability, and unparalleled customer service ensures that every project shines brilliantly.
+              From sprawling industrial complexes to residential homes, our commitment to safety, technological excellence, and reliable supply ensures that every project is powered efficiently.
             </p>
             <Link to="/about" className="inline-flex items-center gap-4 bg-black text-white font-bold px-8 py-4 rounded-sm hover:bg-gold hover:text-black transition-colors uppercase tracking-widest text-sm">
               Read Our Story <ArrowRight size={18} />
@@ -135,7 +135,7 @@ export default function Home() {
             {categories.map((cat, idx) => (
               <div key={idx} onClick={() => navigate(`/products?category=${cat._id}`)} className="bg-zinc-50 border border-zinc-100 rounded-2xl p-6 hover:shadow-2xl transition-all duration-300 group flex flex-col items-center text-center cursor-pointer transform hover:-translate-y-2">
                 <div className="w-full aspect-square rounded-xl mb-6 flex items-center justify-center overflow-hidden relative">
-                  <img src={processImageUrl(cat.imageUrl) || '/images/hero_bg.png'} alt={cat.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 relative z-10" />
+                  <img src={processImageUrl(cat.imageUrl) || '/images/wire.png'} alt={cat.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 relative z-10" />
                   <div className="absolute inset-0 bg-gradient-to-t from-zinc-50/50 to-transparent z-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </div>
                 <h4 className="font-bold text-lg mb-2 text-black group-hover:text-gold transition-colors">{cat.name}</h4>
@@ -154,13 +154,13 @@ export default function Home() {
         <div className="container mx-auto px-6 flex flex-col lg:flex-row gap-16 items-center">
           <div className="lg:w-1/2">
             <h3 className="text-gold uppercase tracking-widest text-xs font-semibold mb-2">Our Solutions</h3>
-            <h2 className="text-4xl font-bold mb-6 leading-tight">Lighting Solutions<br />for Every Application</h2>
+            <h2 className="text-4xl font-bold mb-6 leading-tight">Electrical Solutions<br />for Every Application</h2>
             <p className="text-zinc-400 mb-10">
-              From residential to industrial, we provide customized lighting solutions that create impact and efficiency.
+              From residential to industrial, we provide customized cabling solutions that guarantee power safety and efficiency.
             </p>
 
             <div className="space-y-4 mb-10">
-              {['Residential Lighting', 'Commercial Lighting', 'Industrial Lighting', 'Outdoor Lighting', 'Smart Lighting Solutions'].map((item, i) => (
+              {['Residential Wiring', 'Commercial Electrical Systems', 'Industrial Power Distribution', 'Infrastructure Cabling', 'Network Cabling'].map((item, i) => (
                 <div key={i} className="flex items-center gap-3">
                   <CheckCircle2 className="text-gold" size={18} />
                   <span className="font-medium text-zinc-300">{item}</span>
@@ -176,8 +176,8 @@ export default function Home() {
           <div className="lg:w-1/2 relative">
             <div className="rounded-lg overflow-hidden border border-white/10 shadow-2xl relative z-10">
               <img
-                src="/images/all_image.png"
-                alt="Modern Office Lighting"
+                src="/images/custom.png"
+                alt="Modern Office Cabling"
                 className="w-full h-auto"
               />
             </div>
@@ -210,7 +210,7 @@ export default function Home() {
               >
                 <div className="p-6 flex items-center justify-center relative min-h-[250px]">
                   <img
-                    src={processImageUrl(product.imageUrl) || '/images/hero_bg.png'}
+                    src={processImageUrl(product.imageUrl) || '/images/wire.png'}
                     alt={product.title}
                     className="max-w-full max-h-[180px] object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-700"
                   />
@@ -224,7 +224,7 @@ export default function Home() {
                   {product.sku && <p className="text-gray-400 text-[10px] font-bold uppercase tracking-widest mb-2">{product.sku}</p>}
                   <h3 className="text-lg font-bold mb-2 text-black group-hover:text-gold transition-colors">{product.title}</h3>
                   <p className="text-gray-500 text-xs leading-relaxed mb-4 line-clamp-2">
-                    {product.shortDescription || product.fullDescription || "Premium quality lighting fixture designed for longevity and performance."}
+                    {product.shortDescription || product.fullDescription || "Premium quality wire/cable designed for longevity and performance."}
                   </p>
                   <div className="mt-auto flex items-center gap-2 text-black font-bold text-xs uppercase tracking-widest group-hover:gap-4 transition-all">
                     View Details <ArrowRight size={14} className="text-gold" />
@@ -252,23 +252,23 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="bg-zinc-900/40 border border-white/5 rounded-sm overflow-hidden group hover:border-gold/30 transition-colors">
               <div className="h-48 overflow-hidden">
-                <img src="/images/commercial.png" alt="Smart Lighting" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                <img src="/images/industry.png" alt="Commercial Cabling" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
               </div>
               <div className="p-8">
                 <p className="text-gold text-xs font-bold uppercase tracking-wider mb-2">Commercial</p>
-                <h4 className="text-xl font-bold mb-3 text-white group-hover:text-gold transition-colors">The Future of Smart Commercial Lighting</h4>
-                <p className="text-zinc-400 text-sm mb-4 line-clamp-2">Explore how IoT and smart sensors are revolutionizing the way we illuminate large commercial spaces, driving unprecedented energy savings.</p>
+                <h4 className="text-xl font-bold mb-3 text-white group-hover:text-gold transition-colors">The Future of Smart Commercial Cabling</h4>
+                <p className="text-zinc-400 text-sm mb-4 line-clamp-2">Explore how advanced networking and power cables are revolutionizing the way we connect large commercial spaces.</p>
                 <Link to="/blog" className="inline-flex items-center gap-2 text-white font-semibold text-xs uppercase tracking-wider hover:text-gold transition-colors">Read More <ArrowRight size={14} /></Link>
               </div>
             </div>
             <div className="bg-zinc-900/40 border border-white/5 rounded-sm overflow-hidden group hover:border-gold/30 transition-colors">
               <div className="h-48 overflow-hidden">
-                <img src="/images/residential_lighting.png" alt="Color Temperature" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                <img src="/images/about.png" alt="Cable Installation" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
               </div>
               <div className="p-8">
-                <p className="text-gold text-xs font-bold uppercase tracking-wider mb-2">Residential</p>
-                <h4 className="text-xl font-bold mb-3 text-white group-hover:text-gold transition-colors">How to Choose the Perfect Color Temperature</h4>
-                <p className="text-zinc-400 text-sm mb-4 line-clamp-2">Warm, neutral, or cool? A comprehensive guide to selecting the right color temperature for every room in your home.</p>
+                <p className="text-gold text-xs font-bold uppercase tracking-wider mb-2">Safety</p>
+                <h4 className="text-xl font-bold mb-3 text-white group-hover:text-gold transition-colors">Importance of Fire-Safe Wiring</h4>
+                <p className="text-zinc-400 text-sm mb-4 line-clamp-2">A comprehensive guide to selecting fire-resistant cables to ensure maximum safety in modern infrastructure.</p>
                 <Link to="/blog" className="inline-flex items-center gap-2 text-white font-semibold text-xs uppercase tracking-wider hover:text-gold transition-colors">Read More <ArrowRight size={14} /></Link>
               </div>
             </div>
@@ -286,14 +286,14 @@ export default function Home() {
       <section data-aos="fade-up" className="bg-white text-black py-24">
         <div className="container mx-auto px-6 text-center">
           <h3 className="text-gold uppercase tracking-widest text-xs font-semibold mb-2">Our Projects</h3>
-          <h2 className="text-4xl font-bold mb-12">Lighting Up Spaces</h2>
+          <h2 className="text-4xl font-bold mb-12">Powering Infrastructure</h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
             {[
               { title: 'Residential Project', img: '/images/resitential_area.png' },
               { title: 'Hospitality Project', img: '/images/second.png' },
-              { title: 'Industrial Project', img: '/images/industrial.png' },
-              { title: 'Commercial Project', img: '/images/commercial.png' }
+              { title: 'Industrial Cabling', img: '/images/industrial.png' },
+              { title: 'Commercial Wiring', img: '/images/commercial.png' }
             ].map((proj, idx) => (
               <div key={idx} className="group relative rounded-lg overflow-hidden cursor-pointer shadow-lg">
                 <div className="aspect-[4/3] w-full">
@@ -326,17 +326,17 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {[
               {
-                text: "The lighting overhaul provided by AMPSLITE completely transformed our office space. Productivity is up and energy costs are down.",
+                text: "The complete wiring solution significantly improved the electrical efficiency, reliability, and safety of our facility.",
                 author: "Sarah Jenkins",
                 role: "Facility Manager, Nexus Tech"
               },
               {
-                text: "Unparalleled quality and stunning design. The architectural lighting for our hotel facade has become a landmark in the city.",
+                text: "Unparalleled quality and rapid delivery. The heavy-duty power cabling provided reliable electrical infrastructure for our hotel.",
                 author: "Michael Chang",
                 role: "Director, Grand Horizon Hotels"
               },
               {
-                text: "Professional from start to finish. The industrial high-bay LEDs they installed are robust, reliable, and exceeded our expectations.",
+                text: "Professional from start to finish. The industrial armoured cables they supplied are robust, safe, and exceeded our expectations.",
                 author: "David Roberts",
                 role: "Operations Head, Apex Mfg"
               }
@@ -367,7 +367,7 @@ export default function Home() {
               { num: '2500+', label: 'Projects Completed' },
               { num: '1800+', label: 'Happy Clients' },
               { num: '10+', label: 'Years Experience' },
-              { num: '25+', label: 'Countries Served' }
+              { num: '1000+', label: 'KM CABLES SUPPLIED' }
             ].map((stat, idx) => (
               <div key={idx} className="flex flex-col items-center">
                 <h3 className="text-4xl md:text-5xl font-bold text-gold mb-2">{stat.num}</h3>

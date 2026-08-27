@@ -4,32 +4,32 @@ import { ArrowRight, Calendar, User } from 'lucide-react'
 export default function Blog() {
   const blogPosts = [
     {
-      title: "The Future of Smart Commercial Lighting",
-      excerpt: "Explore how IoT and smart sensors are revolutionizing the way we illuminate large commercial spaces, driving unprecedented energy savings.",
+      title: "The Future of Smart Commercial Cabling",
+      excerpt: "Explore how advanced networking and power cables are revolutionizing the way we connect large commercial spaces, driving unprecedented efficiency.",
       image: "/images/resitential_area.png",
       date: "August 15, 2026",
       author: "Sarah Jenkins",
       category: "Commercial"
     },
     {
-      title: "How to Choose the Perfect Color Temperature",
-      excerpt: "Warm, neutral, or cool? A comprehensive guide to selecting the right color temperature (Kelvin) for every room in your residential project.",
+      title: "Importance of Fire-Safe Wiring",
+      excerpt: "A comprehensive guide to selecting fire-resistant cables to ensure maximum safety and compliance in modern infrastructure.",
       image: "/images/residential_lighting.png",
       date: "July 28, 2026",
       author: "David Chen",
-      category: "Residential"
+      category: "Safety"
     },
     {
-      title: "Maximizing ROI with Industrial LED Upgrades",
-      excerpt: "Discover the financial and operational benefits of retrofitting your warehouse or factory with modern, high-bay LED lighting fixtures.",
+      title: "Maximizing ROI with Industrial Cable Upgrades",
+      excerpt: "Discover the financial and operational benefits of retrofitting your warehouse or factory with modern, high-capacity power cables.",
       image: "/images/industry.png",
       date: "July 10, 2026",
       author: "Michael Ross",
       category: "Industrial"
     },
     {
-      title: "The Impact of Lighting on Employee Productivity",
-      excerpt: "Scientific studies show that human-centric lighting designs can significantly boost focus, mood, and overall productivity in the workplace.",
+      title: "The Impact of Quality Wiring on Power Stability",
+      excerpt: "Scientific studies show that premium electrical infrastructure designs can significantly boost equipment longevity and overall workplace productivity.",
       image: "/images/wire.png",
       date: "June 22, 2026",
       author: "Elena Rodriguez",
@@ -43,8 +43,8 @@ export default function Blog() {
       <section className="relative h-[80vh] flex flex-col items-center justify-center text-center border-b border-white/10 mb-12">
         <div className="absolute inset-0 overflow-hidden">
           <img 
-            src="/images/about.png" 
-            alt="Lighting Insights Blog" 
+            src="/images/wire.png" 
+            alt="Electrical Insights Blog" 
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-black/40 backdrop-blur-[1px] bg-gradient-to-b from-black/70 via-black/20 to-black/80"></div>
@@ -55,7 +55,7 @@ export default function Blog() {
             News & <span className="text-gold">Insights</span>
           </h1>
           <p className="text-gray-200 text-lg md:text-2xl leading-relaxed opacity-0 animate-fade-in-up delay-200 font-medium drop-shadow-md">
-            Stay updated with the latest trends, expert guides, and industry news from the world of professional lighting.
+            Stay updated with the latest trends, expert guides, and industry news from the world of professional electrical infrastructure.
           </p>
         </div>
       </section>

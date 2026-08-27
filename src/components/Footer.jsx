@@ -42,9 +42,9 @@ export default function Footer() {
           
           {/* Column 1: Logo & Description */}
           <div className="col-span-1 flex flex-col items-start">
-            <img src={Logo} alt="AMPSLITE" className="h-12 object-contain object-left mix-blend-screen mb-6 -mt-2 lg:-mt-1" />
+            <img src={Logo} alt="AMPSCABLE" className="h-12 object-contain object-left mix-blend-screen mb-6 -mt-2 lg:-mt-1" />
             <p className="mb-6 leading-relaxed text-[13px] text-zinc-300 max-w-sm">
-              AMPSLITE designs and manufactures premium architectural and industrial lighting built to last. From smart cities to premium estates, we illuminate modern spaces.
+              AMPSLITE designs and manufactures premium electrical wires and cables built for safety and reliability. From smart cities to premium estates, we power modern infrastructure.
             </p>
             <div className="flex gap-4">
               <a href="#" className="bg-white/5 p-2 rounded-sm hover:bg-gold hover:text-black transition-colors">

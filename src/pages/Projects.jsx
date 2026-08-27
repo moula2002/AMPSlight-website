@@ -7,42 +7,42 @@ export default function Projects() {
       title: "Nexus Tech Hub",
       category: "Commercial",
       location: "Silicon Valley, CA",
-      description: "Complete smart lighting overhaul for a 50,000 sq ft office space.",
+      description: "Complete smart cabling and network overhaul for a 50,000 sq ft office space.",
       image: "/images/commercial-1.png"
     },
     {
       title: "Grand Horizon Hotel",
       category: "Hospitality",
       location: "Miami, FL",
-      description: "Architectural facade and ambient interior lighting design.",
+      description: "Comprehensive architectural and interior electrical infrastructure design.",
       image: "/images/custom.png"
     },
     {
       title: "Apex Manufacturing Plant",
       category: "Industrial",
       location: "Detroit, MI",
-      description: "High-bay LED retrofitting reducing energy consumption by 45%.",
+      description: "High-voltage industrial cabling reducing power loss and improving safety.",
       image: "/images/commercial.png"
     },
     {
       title: "Starlight Residences",
       category: "Residential",
       location: "Austin, TX",
-      description: "Luxury apartment complex with integrated circadian rhythm lighting.",
+      description: "Luxury apartment complex with integrated smart home wiring systems.",
       image: "/images/resitential_area.png"
     },
     {
       title: "Central City Plaza",
       category: "Public Space",
       location: "Chicago, IL",
-      description: "Outdoor landscape and pathway illumination for public safety.",
+      description: "Outdoor landscape and pathway underground cabling for maximum public safety.",
       image: "/images/central.png"
     },
     {
       title: "Aurora Gallery",
       category: "Retail / Art",
       location: "New York, NY",
-      description: "Precision track lighting to enhance color rendering of artworks.",
+      description: "Precision electrical wiring to enhance exhibition safety and power stability.",
       image: "/images/second.png"
     }
   ];
@@ -53,7 +53,7 @@ export default function Projects() {
       <section className="relative h-[80vh] flex flex-col items-center justify-center text-center border-b border-white/10 mb-12">
         <div className="absolute inset-0 overflow-hidden">
           <img 
-            src="/images/about.png" 
+            src="/images/wire.png" 
             alt="Featured Projects" 
             className="w-full h-full object-cover"
           />
@@ -65,7 +65,7 @@ export default function Projects() {
             Featured <span className="text-gold">Projects</span>
           </h1>
           <p className="text-gray-200 text-lg md:text-2xl leading-relaxed opacity-0 animate-fade-in-up delay-200 font-medium drop-shadow-md">
-            Explore our portfolio of successful installations across various industries, showcasing our commitment to excellence and innovation.
+            Explore our portfolio of successful installations across various industries, showcasing our commitment to excellence in electrical infrastructure.
           </p>
         </div>
       </section>
@@ -111,7 +111,7 @@ export default function Projects() {
         <div className="text-center max-w-3xl mx-auto">
           <h2 className="text-3xl font-bold mb-6">Have a project in mind?</h2>
           <p className="text-zinc-400 mb-8">
-            Let's collaborate to create a stunning lighting solution tailored to your specific requirements.
+            Let's collaborate to create a robust and reliable cabling solution tailored to your specific requirements.
           </p>
           <Link to="/contact" className="inline-block bg-gold text-black font-bold px-8 py-4 hover:bg-white transition-colors rounded-sm uppercase tracking-wider text-sm">
             Start a Conversation

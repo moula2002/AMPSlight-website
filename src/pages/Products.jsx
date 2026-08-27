@@ -51,7 +51,7 @@ export default function Products() {
 
   const heroTitle = selectedCategory === 'All' ? 'Our Products' : selectedCategory;
   const heroDesc = selectedCategory === 'All' 
-    ? 'Premium lighting built to perform and designed to impress.'
+    ? 'Premium wires and cables built to perform and designed to last.'
     : `Premium ${selectedCategory.toLowerCase()} built to perform and designed to impress.`;
 
   return (
@@ -125,7 +125,7 @@ export default function Products() {
                   {product.sku && <p className="text-gray-400 text-[10px] font-bold uppercase tracking-widest mb-2">{product.sku}</p>}
                   <h3 className="text-xl font-bold mb-3 text-black group-hover:text-gold transition-colors">{product.title}</h3>
                   <p className="text-gray-500 text-sm leading-relaxed mb-6">
-                    {product.shortDescription || product.fullDescription || "Premium quality lighting fixture designed for longevity and performance."}
+                    {product.shortDescription || product.fullDescription || "Premium quality wire/cable designed for longevity, maximum safety, and performance."}
                   </p>
                   <div className="mt-auto flex items-center gap-2 text-black font-bold text-xs uppercase tracking-widest group-hover:gap-4 transition-all">
                     View Details <ArrowRight size={14} className="text-gold" />

@@ -55,7 +55,7 @@ export default function Contact() {
       <section className="relative h-[80vh] flex flex-col items-center justify-center text-center border-b border-white/10 mb-12">
         <div className="absolute inset-0 overflow-hidden">
           <img 
-            src="/images/office_lighting.png" 
+            src="/images/wire.png" 
             alt="Contact Us" 
             className="w-full h-full object-cover"
           />

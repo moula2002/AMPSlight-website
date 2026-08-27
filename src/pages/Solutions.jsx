@@ -6,22 +6,22 @@ export default function Solutions() {
     {
       title: "Consulting & Design",
       icon: <LineChart className="w-10 h-10 text-gold mb-6" />,
-      description: "Our experts collaborate with architects and designers to create comprehensive lighting plans that meet aesthetic and functional requirements.",
+      description: "Our experts collaborate with electrical engineers and designers to create comprehensive wiring and cabling plans that meet stringent safety and functional requirements.",
       benefits: ["Photometric Layouts", "3D Renderings", "Energy Audits", "Code Compliance"],
       image: "/images/consult.png"
     },
     {
       title: "Custom Installation",
       icon: <Wrench className="w-10 h-10 text-gold mb-6" />,
-      description: "Professional deployment by certified technicians ensuring that every fixture is installed safely and optimally.",
+      description: "Professional deployment by certified technicians ensuring that every cable and conduit is installed safely and optimally.",
       benefits: ["Project Management", "Site Surveys", "Turnkey Solutions", "Safety Protocols"],
       image: "/images/custom.png"
     },
     {
-      title: "Retrofitting & Upgrades",
+      title: "Wiring Upgrades & Safety Maintenance",
       icon: <Settings className="w-10 h-10 text-gold mb-6" />,
-      description: "Modernize your existing infrastructure with energy-efficient LED technology, drastically reducing operational costs.",
-      benefits: ["ROI Analysis", "Rebate Assistance", "Minimal Disruption", "Smart Integration"],
+      description: "Upgrade your existing electrical infrastructure for improved reliability, performance, and maximum safety compliance.",
+      benefits: ["Safety Audits", "Load Analysis", "Minimal Disruption", "Smart Integration"],
       image: "/images/retrofit.png"
     }
   ];
@@ -44,7 +44,7 @@ export default function Solutions() {
             Tailored <span className="text-gold">Solutions</span>
           </h1>
           <p className="text-gray-200 text-lg md:text-2xl leading-relaxed opacity-0 animate-fade-in-up delay-200 font-medium drop-shadow-md">
-            Beyond products, we offer end-to-end services to ensure your lighting project is a complete success from concept to completion.
+            Beyond products, we offer end-to-end services to ensure your electrical infrastructure project is a complete success from concept to completion.
           </p>
         </div>
       </section>
