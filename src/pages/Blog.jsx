@@ -30,7 +30,7 @@ export default function Blog() {
     {
       title: "The Impact of Lighting on Employee Productivity",
       excerpt: "Scientific studies show that human-centric lighting designs can significantly boost focus, mood, and overall productivity in the workplace.",
-      image: "/images/wire.png",
+      image: "/images/wiren.png",
       date: "June 22, 2026",
       author: "Elena Rodriguez",
       category: "Insights"
