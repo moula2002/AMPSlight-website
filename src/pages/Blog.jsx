@@ -6,7 +6,7 @@ export default function Blog() {
     {
       title: "The Future of Smart Commercial Lighting",
       excerpt: "Explore how IoT and smart sensors are revolutionizing the way we illuminate large commercial spaces, driving unprecedented energy savings.",
-      image: "/images/perfect_hero.png",
+      image: "/images/resitential_area.png",
       date: "August 15, 2026",
       author: "Sarah Jenkins",
       category: "Commercial"
@@ -22,7 +22,7 @@ export default function Blog() {
     {
       title: "Maximizing ROI with Industrial LED Upgrades",
       excerpt: "Discover the financial and operational benefits of retrofitting your warehouse or factory with modern, high-bay LED lighting fixtures.",
-      image: "/images/industrial_lighting.png",
+      image: "/images/industry.png",
       date: "July 10, 2026",
       author: "Michael Ross",
       category: "Industrial"
@@ -30,7 +30,7 @@ export default function Blog() {
     {
       title: "The Impact of Lighting on Employee Productivity",
       excerpt: "Scientific studies show that human-centric lighting designs can significantly boost focus, mood, and overall productivity in the workplace.",
-      image: "/images/office_lighting.png",
+      image: "/images/wire.png",
       date: "June 22, 2026",
       author: "Elena Rodriguez",
       category: "Insights"

@@ -8,14 +8,14 @@ export default function Solutions() {
       icon: <LineChart className="w-10 h-10 text-gold mb-6" />,
       description: "Our experts collaborate with architects and designers to create comprehensive lighting plans that meet aesthetic and functional requirements.",
       benefits: ["Photometric Layouts", "3D Renderings", "Energy Audits", "Code Compliance"],
-      image: "/images/office_lighting.png"
+      image: "/images/consult.png"
     },
     {
       title: "Custom Installation",
       icon: <Wrench className="w-10 h-10 text-gold mb-6" />,
       description: "Professional deployment by certified technicians ensuring that every fixture is installed safely and optimally.",
       benefits: ["Project Management", "Site Surveys", "Turnkey Solutions", "Safety Protocols"],
-      image: "/images/industrial_lighting.png"
+      image: "/images/custom.png"
     },
     {
       title: "Retrofitting & Upgrades",

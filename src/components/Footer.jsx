@@ -42,7 +42,7 @@ export default function Footer() {
           
           {/* Column 1: Logo & Description */}
           <div className="col-span-1 flex flex-col items-start">
-            <img src={Logo} alt="AMPSLITE" className="h-14 object-contain mix-blend-screen mb-6" />
+            <img src={Logo} alt="AMPSLITE" className="h-12 object-contain object-left mix-blend-screen mb-6 -mt-2 lg:-mt-1" />
             <p className="mb-6 leading-relaxed text-[13px] text-zinc-300 max-w-sm">
               AMPSLITE designs and manufactures premium architectural and industrial lighting built to last. From smart cities to premium estates, we illuminate modern spaces.
             </p>

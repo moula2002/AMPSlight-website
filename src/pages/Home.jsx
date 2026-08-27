@@ -252,7 +252,7 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="bg-zinc-900/40 border border-white/5 rounded-sm overflow-hidden group hover:border-gold/30 transition-colors">
               <div className="h-48 overflow-hidden">
-                <img src="/images/office_lighting.png" alt="Smart Lighting" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                <img src="/images/commercial.png" alt="Smart Lighting" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
               </div>
               <div className="p-8">
                 <p className="text-gold text-xs font-bold uppercase tracking-wider mb-2">Commercial</p>
@@ -293,7 +293,7 @@ export default function Home() {
               { title: 'Residential Project', img: '/images/resitential_area.png' },
               { title: 'Hospitality Project', img: '/images/second.png' },
               { title: 'Industrial Project', img: '/images/industrial.png' },
-              { title: 'Commercial Project', img: '/images/office_lighting.png' }
+              { title: 'Commercial Project', img: '/images/commercial.png' }
             ].map((proj, idx) => (
               <div key={idx} className="group relative rounded-lg overflow-hidden cursor-pointer shadow-lg">
                 <div className="aspect-[4/3] w-full">

@@ -8,21 +8,21 @@ export default function Projects() {
       category: "Commercial",
       location: "Silicon Valley, CA",
       description: "Complete smart lighting overhaul for a 50,000 sq ft office space.",
-      image: "/images/office_lighting.png"
+      image: "/images/commercial-1.png"
     },
     {
       title: "Grand Horizon Hotel",
       category: "Hospitality",
       location: "Miami, FL",
       description: "Architectural facade and ambient interior lighting design.",
-      image: "/images/hero_bg.png"
+      image: "/images/custom.png"
     },
     {
       title: "Apex Manufacturing Plant",
       category: "Industrial",
       location: "Detroit, MI",
       description: "High-bay LED retrofitting reducing energy consumption by 45%.",
-      image: "/images/industrial_lighting.png"
+      image: "/images/commercial.png"
     },
     {
       title: "Starlight Residences",
