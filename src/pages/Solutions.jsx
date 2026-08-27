@@ -22,26 +22,28 @@ export default function Solutions() {
       icon: <Settings className="w-10 h-10 text-gold mb-6" />,
       description: "Modernize your existing infrastructure with energy-efficient LED technology, drastically reducing operational costs.",
       benefits: ["ROI Analysis", "Rebate Assistance", "Minimal Disruption", "Smart Integration"],
-      image: "/images/residential_lighting.png"
+      image: "/images/retrofit.png"
     }
   ];
 
   return (
     <div className="min-h-screen bg-white text-black pb-12 font-sans">
       {/* Hero Section */}
-      <section className="relative h-[65vh] flex flex-col justify-end pb-20 border-b border-gray-200 mb-16">
+      <section className="relative h-[80vh] flex flex-col items-center justify-center text-center border-b border-white/10 mb-16">
         <div className="absolute inset-0 overflow-hidden bg-black">
           <img 
-            src="/images/hero_bg.png" 
+            src="/images/about.png" 
             alt="Tailored Solutions" 
-            className="w-full h-full object-cover opacity-80"
+            className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
+          <div className="absolute inset-0 bg-black/40 backdrop-blur-[1px] bg-gradient-to-b from-black/70 via-black/20 to-black/80"></div>
         </div>
         
-        <div className="relative z-10 container mx-auto px-6">
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 tracking-tight text-white">Tailored <span className="text-gold">Solutions</span></h1>
-          <p className="text-white/80 max-w-2xl text-lg md:text-xl font-medium">
+        <div className="relative z-10 container mx-auto px-6 mt-16 max-w-4xl bg-black/20 p-8 md:p-12 rounded-3xl border border-white/10 backdrop-blur-md shadow-2xl">
+          <h1 className="text-5xl md:text-7xl font-extrabold mb-8 tracking-tight text-white drop-shadow-xl opacity-0 animate-fade-in-up delay-100">
+            Tailored <span className="text-gold">Solutions</span>
+          </h1>
+          <p className="text-gray-200 text-lg md:text-2xl leading-relaxed opacity-0 animate-fade-in-up delay-200 font-medium drop-shadow-md">
             Beyond products, we offer end-to-end services to ensure your lighting project is a complete success from concept to completion.
           </p>
         </div>

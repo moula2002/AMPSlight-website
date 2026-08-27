@@ -77,7 +77,7 @@ export default function Home() {
         <div className="flex flex-col lg:flex-row gap-20 items-center">
           <div className="lg:w-1/2 relative group">
             <div className="aspect-[4/3] w-full bg-gray-100 border border-gray-200 p-4 relative overflow-hidden flex items-center justify-center">
-              <img src="/images/residential_lighting.png" alt="AMPSLITE Quality" className="w-full h-full object-cover shadow-sm group-hover:scale-105 transition-transform duration-700" />
+              <img src="/images/all.png" alt="AMPSLITE Quality" className="w-full h-full object-cover shadow-sm group-hover:scale-105 transition-transform duration-700" />
             </div>
             {/* Decorative architectural accents */}
             <div className="absolute -bottom-6 -left-6 w-32 h-1 bg-gold z-10"></div>
@@ -134,8 +134,8 @@ export default function Home() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {categories.map((cat, idx) => (
               <div key={idx} onClick={() => navigate(`/products?category=${cat._id}`)} className="bg-zinc-50 border border-zinc-100 rounded-2xl p-6 hover:shadow-2xl transition-all duration-300 group flex flex-col items-center text-center cursor-pointer transform hover:-translate-y-2">
-                <div className="w-full aspect-square bg-white rounded-xl mb-6 flex items-center justify-center shadow-sm overflow-hidden border border-zinc-100 p-4 relative">
-                  <img src={processImageUrl(cat.imageUrl) || '/images/hero_bg.png'} alt={cat.name} className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500 mix-blend-multiply relative z-10" />
+                <div className="w-full aspect-square rounded-xl mb-6 flex items-center justify-center overflow-hidden relative">
+                  <img src={processImageUrl(cat.imageUrl) || '/images/hero_bg.png'} alt={cat.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 relative z-10" />
                   <div className="absolute inset-0 bg-gradient-to-t from-zinc-50/50 to-transparent z-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </div>
                 <h4 className="font-bold text-lg mb-2 text-black group-hover:text-gold transition-colors">{cat.name}</h4>
@@ -174,11 +174,11 @@ export default function Home() {
           </div>
 
           <div className="lg:w-1/2 relative">
-            <div className="aspect-video rounded-lg overflow-hidden border border-white/10 shadow-2xl relative z-10">
+            <div className="rounded-lg overflow-hidden border border-white/10 shadow-2xl relative z-10">
               <img
-                src="/images/office_lighting.png"
+                src="/images/all_image.png"
                 alt="Modern Office Lighting"
-                className="w-full h-full object-cover"
+                className="w-full h-auto"
               />
             </div>
             {/* Decorative elements */}
@@ -290,9 +290,9 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
             {[
-              { title: 'Residential Project', img: '/images/residential_lighting.png' },
-              { title: 'Hospitality Project', img: '/images/hero_bg.png' },
-              { title: 'Industrial Project', img: '/images/industrial_lighting.png' },
+              { title: 'Residential Project', img: '/images/resitential_area.png' },
+              { title: 'Hospitality Project', img: '/images/second.png' },
+              { title: 'Industrial Project', img: '/images/industrial.png' },
               { title: 'Commercial Project', img: '/images/office_lighting.png' }
             ].map((proj, idx) => (
               <div key={idx} className="group relative rounded-lg overflow-hidden cursor-pointer shadow-lg">

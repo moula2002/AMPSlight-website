@@ -59,12 +59,14 @@ export default function Contact() {
             alt="Contact Us" 
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-black/30"></div>
+          <div className="absolute inset-0 bg-black/40 backdrop-blur-[1px] bg-gradient-to-b from-black/70 via-black/20 to-black/80"></div>
         </div>
         
-        <div className="relative z-10 container mx-auto px-6 mt-12">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4 tracking-tight opacity-0 animate-fade-in-up delay-100">Get in <span className="text-gold">Touch</span></h1>
-          <p className="text-zinc-200 max-w-xl mx-auto text-lg opacity-0 animate-fade-in-up delay-200">
+        <div className="relative z-10 container mx-auto px-6 mt-16 max-w-4xl bg-black/20 p-8 md:p-12 rounded-3xl border border-white/10 backdrop-blur-md shadow-2xl">
+          <h1 className="text-5xl md:text-7xl font-extrabold mb-8 tracking-tight text-white drop-shadow-xl opacity-0 animate-fade-in-up delay-100">
+            Get in <span className="text-gold">Touch</span>
+          </h1>
+          <p className="text-gray-200 text-lg md:text-2xl leading-relaxed opacity-0 animate-fade-in-up delay-200 font-medium drop-shadow-md">
             Whether you have a question about our products, need a custom solution, or want to partner with us, we're ready to hear from you.
           </p>
         </div>

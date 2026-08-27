@@ -35,17 +35,11 @@ export default function Banner() {
   }, [banners.length]);
 
   const processImageUrl = (url) => {
-    if (!url) return '/images/perfect_hero.png';
     if (url.startsWith('data:') || url.startsWith('http')) return url;
     return `https://ampslight-server.onrender.com${url}`;
   };
 
-  // Static Fallback Image when no dynamic banners exist
-  const defaultImages = [
-    { _id: 'default-1', imageUrl: '/images/perfect_hero.png' }
-  ];
-
-  const displayBanners = banners.length > 0 ? banners : defaultImages;
+  const displayBanners = banners;
 
   if (isLoading) {
     return (
