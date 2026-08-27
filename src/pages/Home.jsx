@@ -7,17 +7,22 @@ import Banner from '../components/Banner'
 export default function Home() {
   const [categories, setCategories] = useState([])
   const [products, setProducts] = useState([])
+  const [projectsData, setProjectsData] = useState([])
   const navigate = useNavigate()
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const [catRes, prodRes] = await Promise.all([
+        const [catRes, prodRes, projRes] = await Promise.all([
           api.get('/categories'),
-          api.get('/products')
+          api.get('/products'),
+          api.get('/projects').catch(() => ({ data: [] }))
         ]);
         setCategories(catRes.data.slice(0, 6)) // Show top 6 categories
         setProducts(prodRes.data.slice(0, 3)) // Show top 3 products
+        if (projRes.data && projRes.data.length > 0) {
+          setProjectsData(projRes.data.slice(0, 4));
+        }
       } catch (err) {
         console.error('Failed to load data', err)
       }
@@ -289,15 +294,15 @@ export default function Home() {
           <h2 className="text-4xl font-bold mb-12">Powering Infrastructure</h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-            {[
+            {(projectsData.length > 0 ? projectsData : [
               { title: 'Residential Project', img: '/images/resitential_area.png' },
               { title: 'Hospitality Project', img: '/images/second.png' },
               { title: 'Industrial Cabling', img: '/images/industrial.png' },
               { title: 'Commercial Wiring', img: '/images/commercial.png' }
-            ].map((proj, idx) => (
+            ]).map((proj, idx) => (
               <div key={idx} className="group relative rounded-lg overflow-hidden cursor-pointer shadow-lg">
                 <div className="aspect-[4/3] w-full">
-                  <img src={proj.img} alt={proj.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                  <img src={processImageUrl(proj.image || proj.imageUrl || proj.img || '/images/wire.png')} alt={proj.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
                 <div className="absolute bottom-0 left-0 w-full p-6 text-left">

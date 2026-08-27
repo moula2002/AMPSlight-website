@@ -1,51 +1,81 @@
 import { ArrowUpRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import api from '../api/axiosInstance';
+
+const staticProjects = [
+  {
+    title: "Nexus Tech Hub",
+    category: "Commercial",
+    location: "Silicon Valley, CA",
+    description: "Complete smart cabling and network overhaul for a 50,000 sq ft office space.",
+    image: "/images/commercial-1.png"
+  },
+  {
+    title: "Grand Horizon Hotel",
+    category: "Hospitality",
+    location: "Miami, FL",
+    description: "Comprehensive architectural and interior electrical infrastructure design.",
+    image: "/images/custom.png"
+  },
+  {
+    title: "Apex Manufacturing Plant",
+    category: "Industrial",
+    location: "Detroit, MI",
+    description: "High-voltage industrial cabling reducing power loss and improving safety.",
+    image: "/images/commercial.png"
+  },
+  {
+    title: "Starlight Residences",
+    category: "Residential",
+    location: "Austin, TX",
+    description: "Luxury apartment complex with integrated smart home wiring systems.",
+    image: "/images/resitential_area.png"
+  },
+  {
+    title: "Central City Plaza",
+    category: "Public Space",
+    location: "Chicago, IL",
+    description: "Outdoor landscape and pathway underground cabling for maximum public safety.",
+    image: "/images/central.png"
+  },
+  {
+    title: "Aurora Gallery",
+    category: "Retail / Art",
+    location: "New York, NY",
+    description: "Precision electrical wiring to enhance exhibition safety and power stability.",
+    image: "/images/second.png"
+  }
+];
 
 export default function Projects() {
-  const projects = [
-    {
-      title: "Nexus Tech Hub",
-      category: "Commercial",
-      location: "Silicon Valley, CA",
-      description: "Complete smart cabling and network overhaul for a 50,000 sq ft office space.",
-      image: "/images/commercial-1.png"
-    },
-    {
-      title: "Grand Horizon Hotel",
-      category: "Hospitality",
-      location: "Miami, FL",
-      description: "Comprehensive architectural and interior electrical infrastructure design.",
-      image: "/images/custom.png"
-    },
-    {
-      title: "Apex Manufacturing Plant",
-      category: "Industrial",
-      location: "Detroit, MI",
-      description: "High-voltage industrial cabling reducing power loss and improving safety.",
-      image: "/images/commercial.png"
-    },
-    {
-      title: "Starlight Residences",
-      category: "Residential",
-      location: "Austin, TX",
-      description: "Luxury apartment complex with integrated smart home wiring systems.",
-      image: "/images/resitential_area.png"
-    },
-    {
-      title: "Central City Plaza",
-      category: "Public Space",
-      location: "Chicago, IL",
-      description: "Outdoor landscape and pathway underground cabling for maximum public safety.",
-      image: "/images/central.png"
-    },
-    {
-      title: "Aurora Gallery",
-      category: "Retail / Art",
-      location: "New York, NY",
-      description: "Precision electrical wiring to enhance exhibition safety and power stability.",
-      image: "/images/second.png"
-    }
-  ];
+  const [projects, setProjects] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchProjects = async () => {
+      try {
+        const response = await api.get('/projects');
+        if (response.data && response.data.length > 0) {
+          setProjects(response.data);
+        } else {
+          setProjects(staticProjects);
+        }
+      } catch (err) {
+        console.error('Failed to fetch projects:', err);
+        setProjects(staticProjects);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchProjects();
+  }, []);
+
+  const processImageUrl = (url) => {
+    if (!url) return '';
+    if (url.startsWith('data:') || url.startsWith('http')) return url;
+    return `https://ampslight-server.onrender.com${url}`;
+  };
 
   return (
     <div className="min-h-screen bg-black pb-12">
@@ -72,38 +102,42 @@ export default function Projects() {
 
       {/* Projects Grid */}
       <section data-aos="fade-up" className="container mx-auto px-6 py-12">
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {projects.map((project, index) => (
-            <div key={index} className="group relative h-[400px] overflow-hidden rounded-sm cursor-pointer">
-              {/* Background Image */}
-              <div 
-                className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
-                style={{ backgroundImage: `url(${project.image})` }}
-              />
-              
-              {/* Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-300" />
-              
-              {/* Content */}
-              <div className="absolute inset-0 p-8 flex flex-col justify-end">
-                <div className="translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                  <span className="text-gold text-xs font-bold uppercase tracking-widest mb-2 block">{project.category}</span>
-                  <h3 className="text-2xl font-bold text-white mb-2">{project.title}</h3>
-                  <p className="text-zinc-300 text-sm mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">
-                    {project.description}
-                  </p>
-                  
-                  <div className="flex items-center justify-between mt-4 pt-4 border-t border-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-200">
-                    <span className="text-zinc-400 text-sm">{project.location}</span>
-                    <button className="bg-white/10 p-2 rounded-full hover:bg-gold hover:text-black transition-colors">
-                      <ArrowUpRight size={16} />
-                    </button>
+        {loading ? (
+          <div className="text-center text-white py-24 text-xl font-bold uppercase tracking-widest animate-pulse">Loading Projects...</div>
+        ) : (
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {projects.map((project, index) => (
+              <div key={project._id || index} className="group relative h-[400px] overflow-hidden rounded-sm cursor-pointer">
+                {/* Background Image */}
+                <div 
+                  className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+                  style={{ backgroundImage: `url(${processImageUrl(project.image || project.imageUrl || '/images/hero_bg.png')})` }}
+                />
+                
+                {/* Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-300" />
+                
+                {/* Content */}
+                <div className="absolute inset-0 p-8 flex flex-col justify-end">
+                  <div className="translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                    <span className="text-gold text-xs font-bold uppercase tracking-widest mb-2 block">{project.category}</span>
+                    <h3 className="text-2xl font-bold text-white mb-2">{project.title}</h3>
+                    <p className="text-zinc-300 text-sm mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100 line-clamp-2">
+                      {project.description}
+                    </p>
+                    
+                    <div className="flex items-center justify-between mt-4 pt-4 border-t border-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-200">
+                      <span className="text-zinc-400 text-sm">{project.location || project.area}</span>
+                      <button className="bg-white/10 p-2 rounded-full hover:bg-gold hover:text-black transition-colors">
+                        <ArrowUpRight size={16} />
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        )}
       </section>
 
       {/* CTA */}
