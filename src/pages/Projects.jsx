@@ -3,50 +3,7 @@ import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import api from '../api/axiosInstance';
 
-const staticProjects = [
-  {
-    title: "Nexus Tech Hub",
-    category: "Commercial",
-    location: "Silicon Valley, CA",
-    description: "Complete smart cabling and network overhaul for a 50,000 sq ft office space.",
-    image: "/images/commercial-1.png"
-  },
-  {
-    title: "Grand Horizon Hotel",
-    category: "Hospitality",
-    location: "Miami, FL",
-    description: "Comprehensive architectural and interior electrical infrastructure design.",
-    image: "/images/custom.png"
-  },
-  {
-    title: "Apex Manufacturing Plant",
-    category: "Industrial",
-    location: "Detroit, MI",
-    description: "High-voltage industrial cabling reducing power loss and improving safety.",
-    image: "/images/commercial.png"
-  },
-  {
-    title: "Starlight Residences",
-    category: "Residential",
-    location: "Austin, TX",
-    description: "Luxury apartment complex with integrated smart home wiring systems.",
-    image: "/images/resitential_area.png"
-  },
-  {
-    title: "Central City Plaza",
-    category: "Public Space",
-    location: "Chicago, IL",
-    description: "Outdoor landscape and pathway underground cabling for maximum public safety.",
-    image: "/images/central.png"
-  },
-  {
-    title: "Aurora Gallery",
-    category: "Retail / Art",
-    location: "New York, NY",
-    description: "Precision electrical wiring to enhance exhibition safety and power stability.",
-    image: "/images/second.png"
-  }
-];
+const staticProjects = []; // Removed static projects
 
 export default function Projects() {
   const [projects, setProjects] = useState([]);
@@ -56,20 +13,17 @@ export default function Projects() {
     const fetchProjects = async () => {
       try {
         const response = await api.get('/projects');
-        if (response.data && response.data.length > 0) {
-          setProjects(response.data);
-        } else {
-          setProjects(staticProjects);
-        }
+        setProjects(response.data || []);
       } catch (err) {
         console.error('Failed to fetch projects:', err);
-        setProjects(staticProjects);
+        setProjects([]);
       } finally {
         setLoading(false);
       }
     };
     fetchProjects();
   }, []);
+
 
   const processImageUrl = (url) => {
     if (!url) return '';
