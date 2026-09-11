@@ -39,7 +39,7 @@ export default function Footer() {
     <>
       <footer className="bg-[#111111] pt-16 pb-8 border-t border-white/5 font-sans relative">
         <div className="container mx-auto px-6 lg:px-12 grid grid-cols-1 md:grid-cols-4 gap-8 lg:gap-12">
-          
+
           {/* Column 1: Logo & Description */}
           <div className="col-span-1 flex flex-col items-start">
             <img src={Logo} alt="AMPSCABLE" className="h-12 object-contain object-left mix-blend-screen mb-6 -mt-2 lg:-mt-1" />
@@ -58,7 +58,7 @@ export default function Footer() {
               </a>
             </div>
           </div>
-          
+
           {/* Column 2: Quick Links */}
           <div className="col-span-1 lg:pl-8">
             <h4 className="text-white font-bold mb-6 uppercase tracking-wider text-[13px]">QUICK LINKS</h4>
@@ -72,7 +72,7 @@ export default function Footer() {
               <li><Link to="/contact" className="hover:text-gold transition-colors">Contact Us</Link></li>
             </ul>
           </div>
-          
+
           {/* Column 3: Categories */}
           <div className="col-span-1">
             <h4 className="text-white font-bold mb-6 uppercase tracking-wider text-[13px]">CATEGORIES</h4>
@@ -86,18 +86,18 @@ export default function Footer() {
               )}
             </ul>
           </div>
-          
+
           {/* Column 4: Contact Info */}
           <div className="col-span-1">
             <h4 className="text-white font-bold mb-6 uppercase tracking-wider text-[13px]">CONTACT INFO</h4>
-            
+
             <div className="mb-8">
               <h5 className="text-white font-bold mb-3 uppercase tracking-wider text-[12px]">CORPORATE OFFICE & FACTORY</h5>
               <p className="text-[13px] leading-relaxed text-white/80 font-medium">
-                <span className="font-bold text-white block mb-1">Marudhar Electricals</span>
-                Ground Floor No 54 4th Main 4th Cross<br/>
-                Near Rudhrappa Garden Ashwath Katte<br/>
-                Road Kasturiba Nagar Mysore Road<br/>
+                <span className="font-bold text-white block mb-1">AMPSLITE Electricals</span>
+                Ground Floor No 54 4th Main 4th Cross<br />
+                Near Rudhrappa Garden Ashwath Katte<br />
+                Road Kasturiba Nagar Mysore Road<br />
                 Bengaluru, Karnataka - 560026
               </p>
             </div>
@@ -110,21 +110,21 @@ export default function Footer() {
               </p>
             </div>
           </div>
-          
+
         </div>
 
         {/* Bottom Copyright Bar */}
         <div className="container mx-auto px-6 lg:px-12 pt-6 mt-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center text-[12px] text-zinc-400">
-          <p>© 2026 AMPSLITE. All Rights Reserved. Manufactured & Distributed by Marudhar Electricals.</p>
+          <p>© 2026 AMPSLITE. All Rights Reserved. Manufactured & Distributed by AMPSLITE Electricals.</p>
           <p className="mt-2 md:mt-0">Developed by Innomatrics Technologies</p>
         </div>
       </footer>
 
       {/* Floating Buttons */}
       <div className="fixed bottom-6 left-6 z-50">
-        <a 
-          href="https://wa.me/917204301107" 
-          target="_blank" 
+        <a
+          href="https://wa.me/917204301107"
+          target="_blank"
           rel="noopener noreferrer"
           className="bg-[#25D366] hover:bg-[#20b958] text-white px-5 py-3 rounded-full shadow-2xl flex items-center gap-2 font-bold transition-transform hover:scale-105"
         >
