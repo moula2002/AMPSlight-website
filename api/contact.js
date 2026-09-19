@@ -18,7 +18,7 @@ export default async function handler(req, res) {
     const transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {
-        user: 'murudharelectricals@gmail.com',
+        user: 'info@ampssmartlighting.com',
         pass: 'dufr qvej dfwj cpdk' // App Password
       }
     });
@@ -27,7 +27,7 @@ export default async function handler(req, res) {
     const mailOptions = {
       from: `"${firstName} ${lastName}" <${email}>`, // Note: Gmail usually rewrites the 'from' address to the authenticated user, so we put the sender info in the replyTo and body.
       replyTo: email,
-      to: 'murudharelectricals@gmail.com', // Sending to yourself
+      to: 'info@ampssmartlighting.com', // Sending to yourself
       subject: `AMPSLITE Website Contact: ${subject || 'New Message'}`,
       text: `
 You have received a new message from the AMPSLITE website contact form.

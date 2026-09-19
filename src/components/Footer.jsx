@@ -106,7 +106,7 @@ export default function Footer() {
               <h5 className="text-white font-bold mb-3 uppercase tracking-wider text-[12px]">BUSINESS INQUIRIES</h5>
               <p className="text-[13px] leading-relaxed text-white/80 font-medium">
                 <span className="block">Contact: +91 7204301107</span>
-                <span className="block">E-Mail: murudharelectricals@gmail.com</span>
+                <span className="block">E-Mail: info@ampssmartlighting.com</span>
               </p>
             </div>
           </div>
